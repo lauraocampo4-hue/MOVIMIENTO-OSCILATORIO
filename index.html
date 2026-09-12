@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cuaderno Digital Universitario Interactivo de Física III: Movimiento Oscilatorio y Movimiento Armónico Simple (MAS) - Universidad Tecnológica de Pereira">
+  <title>Física III | Cuaderno Universitario Interactivo - UTP</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#8b4f8c">
+
+  <!-- KaTeX para renderizado matemático de alta fidelidad -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Hojas de Estilo Modulares -->
+  <link rel="stylesheet" href="css/main.css?v=7">
+  <link rel="stylesheet" href="css/notebook.css?v=7">
+  <link rel="stylesheet" href="css/geogebra-canvas.css?v=7">
+  <link rel="stylesheet" href="css/exercises.css?v=7">
+  <link rel="stylesheet" href="css/components.css?v=7">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- ENCABEZADO SUPERIOR ULTRA-COMPACTO -->
+    <header class="app-header">
+      <div class="app-brand">
+        <div class="app-brand-logo" title="Universidad Tecnológica de Pereira">UTP</div>
+        <div class="app-brand-text">
+          <h1>Física III &bull; Cuaderno Universitario Interactivo</h1>
+          <p>Mecánica Oscilatoria y M.A.S. &bull; Ingeniería Industrial &bull; Semestre 7</p>
+        </div>
+      </div>
+      <div class="app-actions">
+        <button id="spreadFullscreenBtn" class="btn-icon" title="Pantalla Completa" aria-label="Pantalla completa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ESCENARIO DEL CUADERNO ABIERTO (DOBLE PÁGINA ENFRENTADA - 85 A 95% DEL ANCHO) -->
+    <main class="notebook-spread-container">
+      <div class="notebook-open-book">
+
+        <!-- ==================================================================
+             COLUMNA CENTRAL: ESPIRAL METÁLICA 3D CON 14 ANILLOS ORO ROSA
+             ================================================================== -->
+        <div class="central-spine" aria-hidden="true">
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+          <div class="spiral-ring"></div>
+        </div>
+
+        <!-- ==================================================================
+             PLIEGO 1 (SPREAD 0): PÁG. 1 (PORTADA) Y PÁG. 2 (PRESENTACIÓN UTP)
+             ================================================================== -->
+        <div class="book-spread active" id="spread-0" data-spread="0">
+          
+          <!-- PÁGINA 1: PORTADA OFICIAL INSTITUCIONAL -->
+          <article class="book-page page-left is-cover" id="page-1">
+            <div class="cover-interactive-layer">
+              <button id="coverOpenBtn" class="cover-open-btn" onclick="if(window.notebookApp) window.notebookApp.goToSpread(1);" aria-label="Abrir Cuaderno de Estudio">
+                <span>Abrir Cuaderno</span>
+                <span class="cover-btn-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- PÁGINA 2: PRESENTACIÓN EDITORIAL Y DEDICATORIA (IMAGEN 2pag.png EXACTA COMO FONDO) -->
+          <article class="book-page page-right is-page-2" id="page-2" aria-label="Presentación del Cuaderno - Física III UTP">
+          </article>
+
+        </div>
+
+        <!-- ==================================================================
+             PLIEGO 2 (SPREAD 1): PÁG. 3 (ÍNDICE VIBRANTE) Y PÁG. 4 (LÍNEA DE TIEMPO)
+             ================================================================== -->
+        <div class="book-spread" id="spread-1" data-spread="1">
+          
+          <!-- PÁGINA 3: ÍNDICE GENERAL DE CONTENIDOS -->
+          <article class="book-page page-left" id="page-3">
+            <!-- Marca de agua decorativa física -->
+            <svg class="thematic-watermark top-right" viewBox="0 0 100 100" fill="none" stroke="#8b4f8c" stroke-width="1.8">
+              <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(30 50 50)"/>
+              <ellipse cx="50" cy="50" rx="42" ry="16" transform="rotate(-30 50 50)"/>
+              <circle cx="50" cy="50" r="7" fill="#8b4f8c" fill-opacity="0.25"/>
+            </svg>
+
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">UTP &bull; Plan Curricular Oficial</span>
+                <h2 class="page-title-script">Índice General de Estudio</h2>
+              </div>
+              <span class="page-number-tag">Pág. 3</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="banner-pill banner-lavender">
+                <span>📋 Estructura Temática & Navegación Rápida</span>
+              </div>
+
+              <div class="toc-grid">
+                <div class="toc-item" onclick="if(window.notebookApp) notebookApp.goToSpread(1)">
+                  <div class="toc-num">04</div>
+                  <div class="toc-content">
+                    <div class="toc-title">📜 Reseña Histórica & Línea de Tiempo</div>
+                    <div class="toc-sub">Galileo, Hooke, Huygens, Euler y Fourier</div>
+                  </div>
+                  <span class="toc-badge-tag" style="background:#fce7f3; color:#9d174d;">Historia</span>
+                </div>
+
+                <div class="toc-item" onclick="if(window.notebookApp) notebookApp.goToSpread(2)">
+                  <div class="toc-num">05</div>
+                  <div class="toc-content">
+                    <div class="toc-title">🧠 Mapa Mental & Secciones 1 y 2</div>
+                    <div class="toc-sub">Red cognitiva y movimiento oscilatorio vs. periódico</div>
+                  </div>
+                  <span class="toc-badge-tag" style="background:#f3e8ff; color:#6b21a8;">Teoría</span>
+                </div>
+
+                <div class="toc-item" onclick="if(window.notebookApp) notebookApp.goToSpread(3)">
+                  <div class="toc-num">07</div>
+                  <div class="toc-content">
+                    <div class="toc-title">📐 Parámetros del Ciclo & Sección 8 (MAS)</div>
+                    <div class="toc-sub">Elongación, amplitud, periodo, frecuencia y Ley de Hooke</div>
+                  </div>
+                  <span class="toc-badge-tag" style="background:#ecfdf5; color:#065f46;">Dinámica</span>
+                </div>
+
+                <div class="toc-item" onclick="if(window.notebookApp) notebookApp.goToSpread(4)">
+                  <div class="toc-num">09</div>
+                  <div class="toc-content">
+                    <div class="toc-title">⚡ Ecuación del MAS & Demostración EDO</div>
+                    <div class="toc-sub">Deducción analítica rigurosa de ẍ + ω²x = 0 con Euler</div>
+                  </div>
+                  <span class="toc-badge-tag" style="background:#fef3c7; color:#92400e;">Cálculo</span>
+                </div>
+
+                <div class="toc-item" onclick="if(window.notebookApp) notebookApp.goToSpread(5)">
+                  <div class="toc-num">11</div>
+                  <div class="toc-content">
+                    <div class="toc-title">📊 Cinemática Diferencial & Estados Notables</div>
+                    <div class="toc-sub">Curvas v(t), a(t), desfases de fase y estados x=0, x=±A</div>
+                  </div>
+                  <span class="toc-badge-tag" style="background:#fce7f3; color:#9d174d;">Cinemática</span>
+                </div>
+
+                <div class="toc-item" onclick="if(window.notebookApp) notebookApp.goToSpread(6)">
+                  <div class="toc-num">13</div>
+                  <div class="toc-content">
+                    <div class="toc-title">⚙️ Laboratorio GeoGebra & Simulador 4-en-1</div>
+                    <div class="toc-sub">Plano milimetrado, masa-resorte, fasor, osciloscopio y péndulo</div>
+                  </div>
+                  <span class="toc-badge-tag" style="background:#eff6ff; color:#1e40af;">Laboratorio</span>
+                </div>
+
+                <div class="toc-item" onclick="if(window.notebookApp) notebookApp.goToSpread(7)">
+                  <div class="toc-num">15</div>
+                  <div class="toc-content">
+                    <div class="toc-title">🌎 5 Casos Reales de la Ingeniería</div>
+                    <div class="toc-sub">Autos, maquinaria, Taipei 101, relojes y acústica musical</div>
+                  </div>
+                  <span class="toc-badge-tag" style="background:#ecfdf5; color:#065f46;">Ingeniería</span>
+                </div>
+
+                <div class="toc-item" onclick="if(window.notebookApp) notebookApp.goToSpread(8)">
+                  <div class="toc-num">17</div>
+                  <div class="toc-content">
+                    <div class="toc-title">📝 Ejercicios Resueltos (Metodología 6 Pasos)</div>
+                    <div class="toc-sub">Sensor industrial y cinemática horaria paso a paso</div>
+                  </div>
+                  <span class="toc-badge-tag" style="background:#fef3c7; color:#92400e;">Práctica</span>
+                </div>
+
+                <div class="toc-item" onclick="if(window.notebookApp) notebookApp.goToSpread(9)">
+                  <div class="toc-num">19</div>
+                  <div class="toc-content">
+                    <div class="toc-title">📚 Glosario Ilustrado & Referencias APA 7</div>
+                    <div class="toc-sub">Términos normativos, unidades SI y fuentes universitarias</div>
+                  </div>
+                  <span class="toc-badge-tag" style="background:#f3e8ff; color:#6b21a8;">Academia</span>
+                </div>
+              </div>
+
+              <!-- Cinta decorativa de inspiración con ilustración científica transparente -->
+              <div class="editorial-card card-cream" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 14px;">
+                <div>
+                  <div class="banner-pill banner-cream" style="font-size: 1.05rem; padding: 2px 10px; margin-bottom: 2px;">
+                    ✨ Enfoque Formativo UTP
+                  </div>
+                  <p style="font-size: 0.81rem; color: #5f4115; line-height: 1.4;">
+                    Diseñado para conectar el rigor de las ecuaciones diferenciales con simulaciones dinámicas y aplicaciones prácticas de la ingeniería industrial.
+                  </p>
+                </div>
+                <div class="sci-diagram-wrap" style="width: 110px; height: 55px; flex-shrink: 0; background: none;">
+                  <svg viewBox="0 0 120 60" width="100%" height="100%" fill="none" stroke="#8b4f8c" stroke-width="1.8">
+                    <path d="M5 30 Q32.5 5 60 30 T115 30" stroke="#db2777" stroke-width="2"/>
+                    <circle cx="60" cy="30" r="18" stroke="#8b4f8c" stroke-dasharray="2,2"/>
+                    <circle cx="60" cy="30" r="4" fill="#059669"/>
+                    <line x1="60" y1="30" x2="75" y2="20" stroke="#059669" stroke-width="2"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Universidad Tecnológica de Pereira &bull; 2026</span>
+              <span>Pág. 3 de 20</span>
+            </div>
+          </article>
+
+          <!-- PÁGINA 4: LÍNEA DE TIEMPO DEL MAS (5 HITOS CLAVE) -->
+          <article class="book-page page-right" id="page-4">
+            <!-- Marca de agua decorativa péndulo / reloj -->
+            <svg class="thematic-watermark top-right" viewBox="0 0 100 100" fill="none" stroke="#8b4f8c" stroke-width="1.8">
+              <circle cx="50" cy="50" r="38"/>
+              <line x1="50" y1="50" x2="50" y2="22"/>
+              <line x1="50" y1="50" x2="72" y2="50"/>
+              <circle cx="50" cy="50" r="4" fill="#8b4f8c" fill-opacity="0.3"/>
+            </svg>
+
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Perspectiva Histórica</span>
+                <h2 class="page-title-script">Línea de Tiempo del M.A.S.</h2>
+              </div>
+              <span class="page-number-tag">Pág. 4</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="banner-pill banner-lavender">
+                <span>⏳ Evolución Histórica de la Mecánica Oscilatoria</span>
+              </div>
+
+              <!-- HITO 1: GALILEO -->
+              <div class="editorial-card card-lavender" style="padding: 6px 12px; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                  <strong style="color: #4a1d52; font-size: 0.88rem;">1583 &bull; Galileo Galilei — Isocronismo del Péndulo</strong>
+                  <span class="seq-badge" style="background:#f3e8ff; color:#6b21a8; font-size: 0.72rem;">Catedral de Pisa</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #47324d; line-height: 1.38;">
+                  Descubrió que el periodo de oscilación es independiente de la amplitud para pequeños ángulos: $T \approx 2\pi\sqrt{L/g}$.
+                </p>
+              </div>
+
+              <!-- HITO 2: HOOKE -->
+              <div class="editorial-card card-rose" style="padding: 6px 12px; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                  <strong style="color: #831843; font-size: 0.88rem;">1660 &bull; Robert Hooke — Ley de Elasticidad</strong>
+                  <span class="seq-badge" style="background:#fce7f3; color:#9d174d; font-size: 0.72rem;">$F = -kx$</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #47324d; line-height: 1.38;">
+                  <em>"Ut tensio, sic vis"</em>: la fuerza restauradora es directamente proporcional a la deformación del resorte.
+                </p>
+              </div>
+
+              <!-- HITO 3: HUYGENS -->
+              <div class="editorial-card card-cream" style="padding: 6px 12px; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                  <strong style="color: #78350f; font-size: 0.88rem;">1673 &bull; Christiaan Huygens — Horologium Oscillatorium</strong>
+                  <span class="seq-badge" style="background:#fef3c7; color:#92400e; font-size: 0.72rem;">Cronometría</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #47324d; line-height: 1.38;">
+                  Patentó el primer reloj de péndulo y demostró que el péndulo cicloidal es rigurosamente isócrono para cualquier amplitud.
+                </p>
+              </div>
+
+              <!-- HITO 4: EULER -->
+              <div class="editorial-card card-sage" style="padding: 6px 12px; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                  <strong style="color: #065f46; font-size: 0.88rem;">1739 &bull; Leonhard Euler — Formalismo de la EDO</strong>
+                  <span class="seq-badge" style="background:#ecfdf5; color:#065f46; font-size: 0.72rem;">$\ddot{x} + \omega^2 x = 0$</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #47324d; line-height: 1.38;">
+                  Formuló la ecuación diferencial armónica homogénea y dedujo su solución trigonométrica mediante exponentes complejos.
+                </p>
+              </div>
+
+              <!-- HITO 5: FOURIER -->
+              <div class="editorial-card card-lavender" style="padding: 6px 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                  <strong style="color: #4a1d52; font-size: 0.88rem;">1822 &bull; Joseph Fourier — Descomposición Armónica</strong>
+                  <span class="seq-badge" style="background:#f3e8ff; color:#6b21a8; font-size: 0.72rem;">Análisis Espectral</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #47324d; line-height: 1.38;">
+                  Demostró que cualquier oscilación periódica compleja puede descomponerse como una suma de funciones sinusoidales puras.
+                </p>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Historia de la Física &bull; Hitos 1 al 5</span>
+              <span>Pág. 4 de 20</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ==================================================================
+             PLIEGO 3 (SPREAD 2): PÁG. 5 (MAPA MENTAL) Y PÁG. 6 (OSCILATORIO VS PERIÓDICO)
+             ================================================================== -->
+        <div class="book-spread" id="spread-2" data-spread="2">
+          
+          <!-- PÁGINA 5: MAPA MENTAL CONCEPTUAL SVG INTERACTIVO -->
+          <article class="book-page page-left" id="page-5">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Red Conceptual Ontológica</span>
+                <h2 class="page-title-script">Mapa Mental del M.A.S.</h2>
+              </div>
+              <span class="page-number-tag">Pág. 5</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="banner-pill banner-lavender">
+                <span>🧠 Red Cognitiva Interactiva del MAS</span>
+              </div>
+
+              <div class="editorial-card card-cream" style="padding: 4px 10px; margin-bottom: 2px;">
+                <p style="font-size: 0.81rem; color: #533b1e;">
+                  <span class="seq-badge fig" style="padding: 1px 6px; font-size: 0.72rem;">Fig. 2</span> <strong>Esquema Dinámico:</strong> Haz clic en cualquier nodo para explorar su fundamento físico, ecuaciones y unidades normativas del SI:
+                </p>
+              </div>
+
+              <!-- Lienzo SVG del Mapa Mental (Gestionado por mindmap.js) -->
+              <div id="mindmapContainer" class="mindmap-container" style="height: 290px; border: 1.5px solid #dcbfe0; border-radius: 12px; background: rgba(255, 255, 255, 0.85); box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);"></div>
+
+              <!-- 4 Cajas conceptuales de resumen para completar el 90% del espacio -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 2px;">
+                <div class="editorial-card card-lavender" style="padding: 5px 8px;">
+                  <strong style="color: #4a1d52; font-size: 0.8rem; display: block;">⚡ Dinámica</strong>
+                  <span style="font-size: 0.76rem; color: #5a4261;">Fuerza restauradora lineal $F = -kx$ orientada siempre al equilibrio.</span>
+                </div>
+                <div class="editorial-card card-rose" style="padding: 5px 8px;">
+                  <strong style="color: #831843; font-size: 0.8rem; display: block;">📊 Cinemática</strong>
+                  <span style="font-size: 0.76rem; color: #5a4261;">Ecuaciones armónicas continuas para $x(t)$, $v(t)$ y $a(t)$.</span>
+                </div>
+                <div class="editorial-card card-sage" style="padding: 5px 8px;">
+                  <strong style="color: #065f46; font-size: 0.8rem; display: block;">🌿 Conservación</strong>
+                  <span style="font-size: 0.76rem; color: #5a4261;">Intercambio continuo de energía: $E_m = \frac{1}{2}kA^2 = \text{cte}$.</span>
+                </div>
+                <div class="editorial-card card-cream" style="padding: 5px 8px;">
+                  <strong style="color: #78350f; font-size: 0.8rem; display: block;">⚙️ GeoGebra</strong>
+                  <span style="font-size: 0.76rem; color: #5a4261;">Modelado interactivo de fasores y plano cartesiano.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Mapa Mental Interactivo &bull; Fig. 2</span>
+              <span>Pág. 5 de 20</span>
+            </div>
+          </article>
+
+          <!-- PÁGINA 6: SECCIÓN 1 Y SECCIÓN 2 (INTRODUCCIÓN Y MOV. PERIÓDICO) -->
+          <article class="book-page page-right" id="page-6">
+            <!-- Marca de agua decorativa masa-resorte y ondas -->
+            <svg class="thematic-watermark top-right" viewBox="0 0 100 100" fill="none" stroke="#8b4f8c" stroke-width="1.8">
+              <path d="M50 4 V16 L40 22 L60 28 L40 34 L60 40 L40 46 L60 52 L50 58 V66"/>
+              <rect x="38" y="66" width="24" height="20" rx="4" fill="#8b4f8c" fill-opacity="0.2"/>
+              <path d="M10 90 Q30 75 50 90 T90 90" stroke-width="1.5" stroke-dasharray="3,3"/>
+            </svg>
+
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Fundamentos Físicos</span>
+                <h2 class="page-title-script">Movimiento Oscilatorio y Periódico</h2>
+              </div>
+              <span class="page-number-tag">Pág. 6</span>
+            </div>
+
+            <div class="page-body-flow">
+              <!-- SECCIÓN 1: INTRODUCCIÓN -->
+              <div class="editorial-card card-lavender">
+                <div class="banner-pill banner-lavender">✨ Sección 1 — ¿Qué es el Movimiento Oscilatorio?</div>
+                <p style="font-size: 0.84rem; color: #3b1d42; line-height: 1.45; margin-bottom: 4px;">
+                  El <strong>movimiento oscilatorio</strong> ocurre cuando un cuerpo o partícula se desplaza repetidamente en torno a una posición central estable llamada <strong>posición de equilibrio</strong>.
+                </p>
+                <div style="font-size: 0.8rem; color: #4a2f50; line-height: 1.4;">
+                  &bull; <strong>Propiedades fundamentales:</strong> Presencia de una fuerza restauradora que se opone al desplazamiento, alternancia continua entre energía cinética y potencial, y punto de equilibrio estable ($x = 0$).<br>
+                  &bull; <strong>Ejemplos en la naturaleza:</strong> Cuerda de guitarra en vibración, péndulo de reloj, átomos en una red cristalina y ramas agitadas por el viento.
+                </div>
+              </div>
+
+              <!-- SECCIÓN 2: MOVIMIENTO PERIÓDICO -->
+              <div class="editorial-card card-sage">
+                <div class="banner-pill banner-sage">🌿 Sección 2 — Movimiento Periódico</div>
+                <p style="font-size: 0.84rem; color: #064e3b; line-height: 1.45; margin-bottom: 4px;">
+                  Un movimiento es <strong>periódico</strong> si las variables cinemáticas (posición, velocidad y aceleración) se repiten de forma idéntica en intervalos regulares y fijos de tiempo denominados <strong>periodo ($T$)</strong>.
+                </p>
+                <p style="font-size: 0.8rem; color: #1c523f; line-height: 1.4;">
+                  &bull; <strong>Ejemplos:</strong> La traslación orbital de la Tierra alrededor del Sol ($T = 365.25\text{ d}$), las aspas de un aerogenerador eólico o el giro del cigüeñal de un motor.
+                </p>
+              </div>
+
+              <!-- COMPARACIÓN CIENTÍFICA ILUSTRADA -->
+              <div class="editorial-card card-rose" style="padding: 8px 12px;">
+                <div class="banner-pill banner-rose" style="font-size: 1.1rem; padding: 2px 10px; margin-bottom: 4px;">
+                  💡 Criterio Físico y Diferencia Fundamental
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                  <p style="font-size: 0.81rem; color: #521d37; line-height: 1.42; flex: 1;">
+                    <strong>Todo movimiento oscilatorio ideal es periódico</strong>, pero <strong>no todo movimiento periódico es oscilatorio</strong>. En el movimiento circular uniforme hay repetición temporal constante, pero no existe vaivén ni inversión en el sentido de la velocidad alrededor del equilibrio.
+                  </p>
+                  <div class="sci-diagram-wrap" style="width: 110px; height: 55px; flex-shrink: 0; background: none;">
+                    <svg viewBox="0 0 110 55" width="100%" height="100%" fill="none" stroke="#db2777" stroke-width="1.8">
+                      <!-- Resorte Oscilatorio -->
+                      <path d="M5 28 L15 28 L20 18 L26 38 L32 18 L38 38 L44 28 L52 28" stroke="#8b4f8c" stroke-width="1.8"/>
+                      <rect x="52" y="20" width="14" height="16" rx="2" fill="#8b4f8c" fill-opacity="0.3"/>
+                      <!-- Flechas de vaivén -->
+                      <path d="M48 10 L68 10 M52 7 L48 10 L52 13 M64 7 L68 10 L64 13" stroke="#059669" stroke-width="1.5"/>
+                      <!-- Órbita circular -->
+                      <circle cx="92" cy="28" r="18" stroke="#d97706" stroke-dasharray="2,2"/>
+                      <circle cx="104" cy="16" r="4" fill="#d97706"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Fundamentos Físicos &bull; Secciones 1 y 2</span>
+              <span>Pág. 6 de 20</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ==================================================================
+             PLIEGO 4 (SPREAD 3): PÁG. 7 (PARÁMETROS 3-7) Y PÁG. 8 (SECCIÓN 8: MAS)
+             ================================================================== -->
+        <div class="book-spread" id="spread-3" data-spread="3">
+          
+          <!-- PÁGINA 7: SECCIONES 3 A 7 — PARÁMETROS FUNDAMENTALES -->
+          <article class="book-page page-left" id="page-7">
+            <!-- Marca de agua decorativa onda armónica sinusoidal -->
+            <svg class="thematic-watermark top-right" viewBox="0 0 100 100" fill="none" stroke="#8b4f8c" stroke-width="1.8">
+              <path d="M5 50 Q27.5 15 50 50 T95 50" stroke-width="2.2"/>
+              <line x1="5" y1="50" x2="95" y2="50" stroke-dasharray="2,2"/>
+              <line x1="27.5" y1="50" x2="27.5" y2="15" stroke="#ec4899" stroke-width="1.5"/>
+              <text x="32" y="36" font-size="12" fill="#8b4f8c" font-family="sans-serif" font-weight="bold">A</text>
+            </svg>
+
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Cinemática Teórica</span>
+                <h2 class="page-title-script">Parámetros del Ciclo Armónico</h2>
+              </div>
+              <span class="page-number-tag">Pág. 7</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 7px;">
+                <div class="editorial-card card-lavender" style="padding: 7px 10px;">
+                  <div class="banner-pill banner-lavender" style="font-size: 1rem; padding: 2px 8px; margin-bottom: 2px;">
+                    Sección 3 &bull; Elongación ($x$)
+                  </div>
+                  <p style="font-size: 0.8rem; color: #4b3752; line-height: 1.38;">
+                    Posición instantánea respecto al equilibrio en cualquier instante $t$. Unidad SI: <strong>metro ($\text{m}$)</strong>.
+                  </p>
+                </div>
+                <div class="editorial-card card-rose" style="padding: 7px 10px;">
+                  <div class="banner-pill banner-rose" style="font-size: 1rem; padding: 2px 8px; margin-bottom: 2px;">
+                    Sección 4 &bull; Amplitud ($A$)
+                  </div>
+                  <p style="font-size: 0.8rem; color: #4b3752; line-height: 1.38;">
+                    Máximo alejamiento absoluto del equilibrio: $A = |x|_{\max} > 0$. Unidad SI: <strong>metro ($\text{m}$)</strong>.
+                  </p>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 7px;">
+                <div class="editorial-card card-sage" style="padding: 7px 10px;">
+                  <div class="banner-pill banner-sage" style="font-size: 1rem; padding: 2px 8px; margin-bottom: 2px;">
+                    Sección 5 &bull; Periodo ($T$)
+                  </div>
+                  <p style="font-size: 0.8rem; color: #4b3752; line-height: 1.38;">
+                    Tiempo requerido para realizar una oscilación completa: $T = 1/f = 2\pi/\omega$. Unidad SI: <strong>segundo ($\text{s}$)</strong>.
+                  </p>
+                </div>
+                <div class="editorial-card card-cream" style="padding: 7px 10px;">
+                  <div class="banner-pill banner-cream" style="font-size: 1rem; padding: 2px 8px; margin-bottom: 2px;">
+                    Sección 6 &bull; Frecuencia ($f$)
+                  </div>
+                  <p style="font-size: 0.8rem; color: #4b3752; line-height: 1.38;">
+                    Número de ciclos efectuados por unidad de tiempo: $f = 1/T$. Unidad SI: <strong>Hertz ($\text{Hz} = \text{s}^{-1}$)</strong>.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FRECUENCIA ANGULAR CON FÓRMULA Y DIAGRAMA -->
+              <div class="editorial-card card-lavender" style="padding: 8px 12px;">
+                <div class="banner-pill banner-lavender" style="font-size: 1.1rem; padding: 2px 10px; margin-bottom: 3px;">
+                  ⚡ Sección 7 &bull; Frecuencia Angular ($\omega$)
+                </div>
+                <p style="font-size: 0.82rem; color: #47324d; line-height: 1.4;">
+                  Rapidez con la que cambia la fase del movimiento en radianes por segundo ($\text{rad/s}$):
+                </p>
+                <div class="formula-box" style="margin-top: 4px; padding: 4px 10px;">
+                  <span class="eq-num"><span class="seq-badge eq">Ec. 1</span></span>
+                  $$\omega = 2\pi f = \frac{2\pi}{T} = \sqrt{\frac{k}{m}} \quad \Longleftrightarrow \quad T = 2\pi \sqrt{\frac{m}{k}}$$
+                </div>
+
+                <!-- Diagrama científico transparente de onda armónica -->
+                <div class="sci-diagram-wrap" style="height: 60px; margin-top: 4px;">
+                  <svg viewBox="0 0 380 65" width="100%" height="100%" fill="none">
+                    <!-- Eje central -->
+                    <line x1="20" y1="32" x2="360" y2="32" stroke="#8b4f8c" stroke-width="1.2" stroke-dasharray="3,3"/>
+                    <!-- Onda armónica -->
+                    <path d="M30 32 Q70 5 110 32 T190 32 T270 32 T350 32" stroke="#7c3aed" stroke-width="2.2"/>
+                    <!-- Amplitud A -->
+                    <line x1="110" y1="32" x2="110" y2="5" stroke="#db2777" stroke-width="1.5"/>
+                    <text x="115" y="20" fill="#db2777" font-size="11" font-weight="bold">+A</text>
+                    <!-- Periodo T -->
+                    <line x1="30" y1="52" x2="190" y2="52" stroke="#059669" stroke-width="1.5"/>
+                    <polygon points="30,52 36,49 36,55" fill="#059669"/>
+                    <polygon points="190,52 184,49 184,55" fill="#059669"/>
+                    <text x="100" y="62" fill="#059669" font-size="11" font-weight="bold">Periodo T (1 ciclo completo)</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Parámetros del Ciclo &bull; Ecuación 1</span>
+              <span>Pág. 7 de 20</span>
+            </div>
+          </article>
+
+          <!-- PÁGINA 8: SECCIÓN 8 — MOVIMIENTO ARMÓNICO SIMPLE (MAS) -->
+          <article class="book-page page-right" id="page-8">
+            <!-- Marca de agua resorte y Ley de Hooke -->
+            <svg class="thematic-watermark top-right" viewBox="0 0 100 100" fill="none" stroke="#8b4f8c" stroke-width="1.8">
+              <path d="M50 8 V20 L38 26 L62 32 L38 38 L62 44 L38 50 L62 56 L50 62 V70"/>
+              <rect x="36" y="70" width="28" height="20" rx="4" fill="#8b4f8c" fill-opacity="0.2"/>
+              <text x="14" y="94" font-size="11" fill="#8b4f8c" font-family="sans-serif" font-weight="bold">F = -kx</text>
+            </svg>
+
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Dinámica Clásica</span>
+                <h2 class="page-title-script">Dinámica del M.A.S. y Ley de Hooke</h2>
+              </div>
+              <span class="page-number-tag">Pág. 8</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="editorial-card card-lavender">
+                <div class="banner-pill banner-lavender">🎯 Definición y Condiciones del MAS</div>
+                <p style="font-size: 0.84rem; color: #3b2842; line-height: 1.45;">
+                  Un sistema ejecuta un <strong>Movimiento Armónico Simple (MAS)</strong> cuando se mueve en línea recta bajo la acción de una <strong>fuerza restauradora proporcional a la distancia e invertida en sentido</strong>.
+                </p>
+              </div>
+
+              <!-- LEY DE HOOKE Y DIAGRAMA DE 3 ESTADOS DEL RESORTE -->
+              <div class="editorial-card card-rose">
+                <div class="banner-pill banner-rose">📐 Ley de Elasticidad de Hooke</div>
+                <div class="formula-box" style="padding: 4px 10px;">
+                  <span class="eq-num"><span class="seq-badge eq">Ec. 2</span></span>
+                  $$\vec{F}_{\text{rest}} = -k \vec{x}$$
+                </div>
+                <p style="font-size: 0.8rem; color: #521d37; margin-top: 3px; line-height: 1.38;">
+                  Donde $k$ es la constante de rigidez elástica ($\text{N/m}$) y el signo negativo indica que la fuerza siempre apunta hacia el equilibrio ($x=0$).
+                </p>
+
+                <!-- Ilustración científica transparente de los 3 estados del resorte -->
+                <div class="sci-diagram-wrap" style="height: 110px; margin-top: 4px;">
+                  <svg viewBox="0 0 360 110" width="100%" height="100%" fill="none">
+                    <!-- Pared de sujeción fija -->
+                    <rect x="15" y="10" width="8" height="90" fill="#8b4f8c" fill-opacity="0.3" stroke="#8b4f8c" stroke-width="1.5"/>
+                    <line x1="23" y1="10" x2="23" y2="100" stroke="#8b4f8c" stroke-width="2"/>
+                    
+                    <!-- Estado 1: Resorte Estirado (x > 0, F < 0 hacia la izquierda) -->
+                    <path d="M23 25 L40 25 L48 18 L58 32 L68 18 L78 32 L88 18 L98 32 L108 18 L118 32 L128 25 L145 25" stroke="#7c3aed" stroke-width="2"/>
+                    <rect x="145" y="15" width="22" height="20" rx="3" fill="#ecd6f1" stroke="#7c3aed" stroke-width="1.5"/>
+                    <text x="151" y="29" fill="#4a1d52" font-size="10" font-weight="bold">m</text>
+                    <!-- Vector Fuerza F hacia la izquierda -->
+                    <line x1="145" y1="25" x2="115" y2="25" stroke="#dc2626" stroke-width="2"/>
+                    <polygon points="115,25 122,21 122,29" fill="#dc2626"/>
+                    <text x="95" y="15" fill="#dc2626" font-size="10" font-weight="bold">F = -kx</text>
+                    <text x="175" y="28" fill="#4a1d52" font-size="10">x &gt; 0 (Estirado)</text>
+
+                    <!-- Línea de equilibrio central x=0 -->
+                    <line x1="120" y1="8" x2="120" y2="102" stroke="#059669" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <text x="110" y="108" fill="#059669" font-size="10" font-weight="bold">x = 0</text>
+
+                    <!-- Estado 2: Reposo en Equilibrio (x = 0, F = 0) -->
+                    <path d="M23 55 L35 55 L42 49 L50 61 L58 49 L66 61 L74 49 L82 61 L90 49 L98 61 L106 55 L120 55" stroke="#059669" stroke-width="2"/>
+                    <rect x="120" y="45" width="22" height="20" rx="3" fill="#dcfce7" stroke="#059669" stroke-width="1.5"/>
+                    <text x="126" y="59" fill="#065f46" font-size="10" font-weight="bold">m</text>
+                    <text x="150" y="58" fill="#065f46" font-size="10">x = 0 (Equilibrio, F = 0)</text>
+
+                    <!-- Estado 3: Resorte Comprimido (x < 0, F > 0 hacia la derecha) -->
+                    <path d="M23 85 L32 85 L36 80 L42 90 L48 80 L54 90 L60 80 L66 90 L72 80 L78 90 L82 85 L95 85" stroke="#d97706" stroke-width="2"/>
+                    <rect x="95" y="75" width="22" height="20" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+                    <text x="101" y="89" fill="#78350f" font-size="10" font-weight="bold">m</text>
+                    <!-- Vector Fuerza F hacia la derecha -->
+                    <line x1="117" y1="85" x2="145" y2="85" stroke="#059669" stroke-width="2"/>
+                    <polygon points="145,85 138,81 138,89" fill="#059669"/>
+                    <text x="150" y="88" fill="#78350f" font-size="10">x &lt; 0 (Comprimido)</text>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- CONCLUSIÓN DINÁMICA -->
+              <div class="editorial-card card-sage" style="padding: 6px 10px;">
+                <p style="font-size: 0.8rem; color: #064e3b; line-height: 1.38;">
+                  <strong>⚡ Criterio de Linealidad:</strong> La aceleración instantánea es siempre proporcional y opuesta a la posición: $a(t) = -\frac{k}{m}x(t) = -\omega^2 x(t)$.
+                </p>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Dinámica Clásica &bull; Ley de Hooke &bull; Ec. 2</span>
+              <span>Pág. 8 de 20</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ==================================================================
+             PLIEGO 5 (SPREAD 4): PÁG. 9 (ECUACIÓN CANÓNICA) Y PÁG. 10 (DEMOSTRACIÓN EDO)
+             ================================================================== -->
+        <div class="book-spread" id="spread-4" data-spread="4">
+          
+          <!-- PÁGINA 9: SECCIÓN 9 — ECUACIÓN GENERAL DEL MAS -->
+          <article class="book-page page-left" id="page-9">
+            <!-- Marca de agua fasor circular -->
+            <svg class="thematic-watermark top-right" viewBox="0 0 100 100" fill="none" stroke="#8b4f8c" stroke-width="1.8">
+              <circle cx="50" cy="50" r="36"/>
+              <line x1="14" y1="50" x2="86" y2="50" stroke-dasharray="2,2"/>
+              <line x1="50" y1="14" x2="50" y2="86" stroke-dasharray="2,2"/>
+              <line x1="50" y1="50" x2="75" y2="25" stroke="#ec4899" stroke-width="2"/>
+            </svg>
+
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Modelado Matemático</span>
+                <h2 class="page-title-script">Ecuación Canónica del MAS</h2>
+              </div>
+              <span class="page-number-tag">Pág. 9</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="editorial-card card-lavender">
+                <div class="banner-pill banner-lavender">📜 Sección 9 — Ecuación de Posición $x(t)$</div>
+                <div class="formula-box" style="padding: 6px 12px;">
+                  <span class="eq-num"><span class="seq-badge eq">Ec. 3</span></span>
+                  $$x(t) = A \cos(\omega t + \phi)$$
+                </div>
+                <div style="font-size: 0.8rem; color: #432549; line-height: 1.38; margin-top: 4px;">
+                  &bull; $A$: Amplitud máxima ($\text{m}$), $A > 0$<br>
+                  &bull; $\omega$: Frecuencia angular ($\text{rad/s}$)<br>
+                  &bull; $(\omega t + \phi)$: Fase total instantánea ($\text{rad}$)<br>
+                  &bull; $\phi$: Constante de fase o fase inicial en $t = 0$ ($\text{rad}$)
+                </div>
+              </div>
+
+              <!-- DIAGRAMA FASORIAL CIENTÍFICO TRANSPARENTE -->
+              <div class="editorial-card card-cream" style="padding: 6px 12px;">
+                <div class="banner-pill banner-cream" style="font-size: 1.05rem; padding: 2px 10px; margin-bottom: 2px;">
+                  🧭 Proyección del Fasor Giratorio en el Círculo de Referencia
+                </div>
+                <div class="sci-diagram-wrap" style="height: 105px;">
+                  <svg viewBox="0 0 360 105" width="100%" height="100%" fill="none">
+                    <!-- Círculo de referencia -->
+                    <circle cx="70" cy="52" r="42" stroke="#8b4f8c" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="15" y1="52" x2="125" y2="52" stroke="#8b4f8c" stroke-width="1.2"/>
+                    <line x1="70" y1="10" x2="70" y2="94" stroke="#8b4f8c" stroke-width="1.2"/>
+                    
+                    <!-- Vector Fasor A con ángulo omega*t + phi -->
+                    <line x1="70" y1="52" x2="102" y2="25" stroke="#db2777" stroke-width="2.5"/>
+                    <polygon points="102,25 94,26 98,33" fill="#db2777"/>
+                    <circle cx="70" cy="52" r="14" stroke="#db2777" stroke-width="1.2" stroke-dasharray="1,2"/>
+                    <text x="82" y="44" fill="#db2777" font-size="9" font-weight="bold">&theta;</text>
+                    <text x="80" y="24" fill="#db2777" font-size="11" font-weight="bold">A</text>
+
+                    <!-- Proyección hacia el eje horizontal x -->
+                    <line x1="102" y1="25" x2="102" y2="52" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="2,2"/>
+                    <circle cx="102" cy="52" r="4" fill="#7c3aed"/>
+                    <text x="96" y="66" fill="#7c3aed" font-size="10" font-weight="bold">x(t)</text>
+
+                    <!-- Línea de conexión al gráfico armónico -->
+                    <line x1="102" y1="25" x2="160" y2="25" stroke="#059669" stroke-width="1.2" stroke-dasharray="2,2"/>
+                    
+                    <!-- Eje de tiempo t -->
+                    <line x1="160" y1="52" x2="340" y2="52" stroke="#8b4f8c" stroke-width="1.5"/>
+                    <polygon points="340,52 334,49 334,55" fill="#8b4f8c"/>
+                    <text x="342" y="55" fill="#8b4f8c" font-size="10">t</text>
+
+                    <!-- Onda coseno generada -->
+                    <path d="M160 25 Q195 5 220 52 T280 52 T340 52" stroke="#7c3aed" stroke-width="2.2"/>
+                    <text x="210" y="16" fill="#7c3aed" font-size="10" font-weight="bold">x(t) = A cos(&omega;t + &phi;)</text>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- DETERMINACIÓN DE LA FASE INICIAL -->
+              <div class="editorial-card card-sage" style="padding: 6px 12px;">
+                <p style="font-size: 0.8rem; color: #064e3b; line-height: 1.38;">
+                  <strong>Condición Inicial en $t=0$:</strong> Si parte del reposo en máxima elongación $x(0) = +A \Rightarrow \phi = 0$. Si pasa por el equilibrio hacia la izquierda en $t=0 \Rightarrow \phi = \pi/2\text{ rad}$.
+                </p>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Modelado Analítico &bull; Ecuación 3</span>
+              <span>Pág. 9 de 20</span>
+            </div>
+          </article>
+
+          <!-- PÁGINA 10: SECCIÓN 10 — DEMOSTRACIÓN PASO A PASO DE LA EDO -->
+          <article class="book-page page-right" id="page-10">
+            <!-- Marca de agua cálculo diferencial -->
+            <svg class="thematic-watermark top-right" viewBox="0 0 100 100" fill="none" stroke="#8b4f8c" stroke-width="1.8">
+              <path d="M25 80 Q35 20 50 50 T75 20" stroke-width="2"/>
+              <text x="18" y="32" font-size="16" fill="#8b4f8c" font-family="serif" font-style="italic">d²x/dt²</text>
+            </svg>
+
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Cálculo Diferencial</span>
+                <h2 class="page-title-script">Demostración Rigurosa de la EDO</h2>
+              </div>
+              <span class="page-number-tag">Pág. 10</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="banner-pill banner-lavender">
+                <span>📐 Deducción Analítica Paso a Paso</span>
+              </div>
+
+              <!-- PASO 1 -->
+              <div class="editorial-card card-lavender" style="padding: 5px 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <strong style="color: #4a1d52; font-size: 0.84rem;">Paso 1: Planteamiento Dinámico (Newton + Hooke)</strong>
+                  <span class="seq-badge" style="background:#f3e8ff; color:#6b21a8; font-size: 0.7rem;">Dinámica</span>
+                </div>
+                <div class="formula-box" style="padding: 2px 8px; margin: 2px 0;">
+                  $$\sum F_x = m a \implies -k x = m \frac{d^2x}{dt^2}$$
+                </div>
+              </div>
+
+              <!-- PASO 2 -->
+              <div class="editorial-card card-cream" style="padding: 5px 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <strong style="color: #78350f; font-size: 0.84rem;">Paso 2: Forma Canónica Homogénea</strong>
+                  <span class="seq-badge eq" style="font-size: 0.7rem;">Ec. 4</span>
+                </div>
+                <div class="formula-box" style="padding: 2px 8px; margin: 2px 0;">
+                  $$\frac{d^2x}{dt^2} + \frac{k}{m} x = 0 \quad \Longrightarrow \quad \frac{d^2x}{dt^2} + \omega^2 x = 0$$
+                </div>
+              </div>
+
+              <!-- PASO 3 -->
+              <div class="editorial-card card-rose" style="padding: 5px 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <strong style="color: #831843; font-size: 0.84rem;">Paso 3: Polinomio Característico y Raíces Imaginarias</strong>
+                  <span class="seq-badge" style="background:#fce7f3; color:#9d174d; font-size: 0.7rem;">Álgebra</span>
+                </div>
+                <div class="formula-box" style="padding: 2px 8px; margin: 2px 0;">
+                  $$r^2 + \omega^2 = 0 \implies r_{1,2} = \pm i \omega$$
+                </div>
+              </div>
+
+              <!-- PASO 4 CON IDENTIDAD DE EULER -->
+              <div class="editorial-card card-sage" style="padding: 5px 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <strong style="color: #065f46; font-size: 0.84rem;">Paso 4: Solución Real Mediante Identidad de Euler</strong>
+                  <span class="seq-badge" style="background:#ecfdf5; color:#065f46; font-size: 0.7rem;">Euler</span>
+                </div>
+                <div class="formula-box" style="padding: 2px 8px; margin: 2px 0;">
+                  $$x(t) = C_1 e^{i\omega t} + C_2 e^{-i\omega t} = A \cos(\omega t + \phi) \quad \blacksquare$$
+                </div>
+                <p style="font-size: 0.78rem; color: #14532d; margin-top: 2px; line-height: 1.35;">
+                  Demostración rigurosa que valida que todo oscilador armónico simple es gobernado por una función sinusoidal pura.
+                </p>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Cálculo Diferencial &bull; Demostración de la EDO</span>
+              <span>Pág. 10 de 20</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ==================================================================
+             PLIEGO 6 (SPREAD 5): PÁG. 11 (CINEMÁTICA) Y PÁG. 12 (ESTADOS NOTABLES)
+             ================================================================== -->
+        <div class="book-spread" id="spread-5" data-spread="5">
+          
+          <!-- PÁGINA 11: CINEMÁTICA DIFERENCIAL (VELOCIDAD Y ACELERACIÓN) -->
+          <article class="book-page page-left" id="page-11">
+            <!-- Marca de agua vectores cinemáticos -->
+            <svg class="thematic-watermark top-right" viewBox="0 0 100 100" fill="none" stroke="#8b4f8c" stroke-width="1.8">
+              <line x1="10" y1="30" x2="80" y2="30" stroke="#059669" stroke-width="2.5"/>
+              <polygon points="80,26 92,30 80,34" fill="#059669"/>
+              <text x="14" y="24" font-size="12" fill="#059669" font-family="sans-serif" font-weight="bold">v(t)</text>
+              <line x1="10" y1="70" x2="80" y2="70" stroke="#dc2626" stroke-width="2.5"/>
+              <polygon points="80,66 92,70 80,74" fill="#dc2626"/>
+              <text x="14" y="64" font-size="12" fill="#dc2626" font-family="sans-serif" font-weight="bold">a(t)</text>
+            </svg>
+
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Cinemática Diferencial</span>
+                <h2 class="page-title-script">Cinemática: Velocidad y Aceleración</h2>
+              </div>
+              <span class="page-number-tag">Pág. 11</span>
+            </div>
+
+            <div class="page-body-flow">
+              <!-- VELOCIDAD -->
+              <div class="editorial-card card-sage">
+                <div class="banner-pill banner-sage">⚡ Velocidad Instantánea $v(t)$</div>
+                <div class="formula-box" style="padding: 4px 10px;">
+                  <span class="eq-num"><span class="seq-badge eq">Ec. 5</span></span>
+                  $$v(t) = \frac{dx}{dt} = -\omega A \sin(\omega t + \phi) = \omega A \cos\left(\omega t + \phi + \frac{\pi}{2}\right)$$
+                </div>
+                <p style="font-size: 0.8rem; color: #064e3b; margin-top: 2px;">
+                  Amplitud máxima $v_{\max} = \omega A$, en <strong>adelanto de fase ($\pi/2\text{ rad} = 90^\circ$)</strong> respecto a $x(t)$.
+                </p>
+              </div>
+
+              <!-- ACELERACIÓN -->
+              <div class="editorial-card card-rose">
+                <div class="banner-pill banner-rose">🎯 Aceleración Instantánea $a(t)$</div>
+                <div class="formula-box" style="padding: 4px 10px;">
+                  <span class="eq-num"><span class="seq-badge eq">Ec. 6</span></span>
+                  $$a(t) = \frac{dv}{dt} = -\omega^2 A \cos(\omega t + \phi) = -\omega^2 x(t)$$
+                </div>
+                <p style="font-size: 0.8rem; color: #701a45; margin-top: 2px;">
+                  Amplitud máxima $a_{\max} = \omega^2 A$, en <strong>oposición de fase ($\pi\text{ rad} = 180^\circ$)</strong> respecto a $x(t)$.
+                </p>
+              </div>
+
+              <!-- FORMAS EN FUNCIÓN DE LA ELONGACIÓN X -->
+              <div class="editorial-card card-lavender" style="padding: 6px 12px;">
+                <h4 style="font-size: 0.86rem; color: #4a2153; margin-bottom: 2px;">Relaciones en Función de la Posición $x$:</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.82rem;">
+                  <div class="formula-box" style="padding: 2px 6px; text-align: center;">$$v(x) = \pm \omega \sqrt{A^2 - x^2}$$</div>
+                  <div class="formula-box" style="padding: 2px 6px; text-align: center;">$$a(x) = -\omega^2 x$$</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Cinemática Diferencial &bull; Ecuaciones 5 y 6</span>
+              <span>Pág. 11 de 20</span>
+            </div>
+          </article>
+
+          <!-- PÁGINA 12: ESTADOS NOTABLES (x=0, x=+A, x=-A) Y ENERGÍA MECÁNICA -->
+          <article class="book-page page-right" id="page-12">
+            <!-- Marca de agua energía mecánica -->
+            <svg class="thematic-watermark top-right" viewBox="0 0 100 100" fill="none" stroke="#8b4f8c" stroke-width="1.8">
+              <path d="M15 80 L50 20 L85 80" stroke-width="2"/>
+              <line x1="10" y1="80" x2="90" y2="80"/>
+              <text x="28" y="94" font-size="11" fill="#8b4f8c" font-family="sans-serif" font-weight="bold">Em = 1/2 kA²</text>
+            </svg>
+
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Estados Notables & Energía</span>
+                <h2 class="page-title-script">Estados Notables y Energía Mecánica</h2>
+              </div>
+              <span class="page-number-tag">Pág. 12</span>
+            </div>
+
+            <div class="page-body-flow">
+              <!-- TABLA 1 COMPARATIVA -->
+              <div class="editorial-card card-lavender" style="padding: 6px 10px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px;">
+                  <strong style="color: #4a1d52; font-size: 0.85rem;">
+                    <span class="seq-badge tbl">Tabla 1</span> Comparativa de Estados Notables del MAS
+                  </strong>
+                </div>
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.78rem; text-align: center; margin-top: 3px;">
+                  <thead>
+                    <tr style="background: #f1e5f5; font-weight: 700; border-bottom: 2px solid #dfcfed;">
+                      <th style="padding: 4px;">Punto del Ciclo</th>
+                      <th style="padding: 4px;">Posición $x$</th>
+                      <th style="padding: 4px;">Velocidad $v$</th>
+                      <th style="padding: 4px;">Aceleración $a$</th>
+                      <th style="padding: 4px;">Energía</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom: 1px solid #ebdfee;">
+                      <td style="font-weight: 700;">Extremo Derecho</td>
+                      <td style="color:#7c3aed; font-weight:700;">$+A$ (Máx.)</td>
+                      <td style="color: #64748b;">$0$</td>
+                      <td style="color: #dc2626; font-weight: 700;">$-\omega^2 A$ (Mín.)</td>
+                      <td>$E_p = \frac{1}{2}kA^2, E_k = 0$</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ebdfee; background: #faf5fc;">
+                      <td style="font-weight: 700;">Centro de Equilibrio</td>
+                      <td style="color: #64748b;">$0$</td>
+                      <td style="color: #059669; font-weight: 700;">$\pm \omega A$ (Máx.)</td>
+                      <td style="color: #64748b;">$0$</td>
+                      <td>$E_k = \frac{1}{2}mv_{\max}^2, E_p = 0$</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: 700;">Extremo Izquierdo</td>
+                      <td style="color:#7c3aed; font-weight:700;">$-A$ (Mín.)</td>
+                      <td style="color: #64748b;">$0$</td>
+                      <td style="color: #059669; font-weight: 700;">$+\omega^2 A$ (Máx.)</td>
+                      <td>$E_p = \frac{1}{2}kA^2, E_k = 0$</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- CONSERVACIÓN DE LA ENERGÍA MECÁNICA TOTAL -->
+              <div class="editorial-card card-sage">
+                <div class="banner-pill banner-sage">⚡ Conservación de la Energía Mecánica Total</div>
+                <div class="formula-box" style="padding: 4px 10px;">
+                  <span class="eq-num"><span class="seq-badge eq">Ec. 7</span></span>
+                  $$E_m = E_k + E_p = \frac{1}{2} m v^2 + \frac{1}{2} k x^2 = \frac{1}{2} k A^2 = \text{constante}$$
+                </div>
+                <p style="font-size: 0.8rem; color: #064e3b; line-height: 1.38; margin-top: 2px;">
+                  En los extremos ($x = \pm A$), la energía es 100% potencial elástica. En el centro ($x = 0$), es 100% cinética. En puntos intermedios, ambas coexisten sumando invariablemente $\frac{1}{2}kA^2$.
+                </p>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Estados Notables &bull; Tabla 1 y Ecuación 7</span>
+              <span>Pág. 12 de 20</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ==================================================================
+             PLIEGO 7 (SPREAD 6): PÁG. 13 (GEOGEBRA) Y PÁG. 14 (SUITE SIMULACIONES 4-EN-1)
+             ================================================================== -->
+        <div class="book-spread" id="spread-6" data-spread="6">
+          
+          <!-- PÁGINA 13: LABORATORIO GRÁFICO GEOGEBRA COMPLETO E INTERACTIVO -->
+          <article class="book-page page-left" id="page-13">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Laboratorio Analítico</span>
+                <h2 class="page-title-script">Plano Cartesiano GeoGebra</h2>
+              </div>
+              <span class="page-number-tag">Pág. 13</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="geogebra-widget">
+                <!-- Barra superior con herramientas interactivas -->
+                <div class="geogebra-header">
+                  <div class="geogebra-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                    <span>GeoGebra Interactivo &bull; $x(t) = A\cos(\omega t + \phi)$</span>
+                  </div>
+                  <div class="geogebra-toolbar">
+                    <button id="geoZoomInBtn" class="geo-btn" title="Acercar Zoom" aria-label="Acercar Zoom">+</button>
+                    <button id="geoZoomOutBtn" class="geo-btn" title="Alejar Zoom" aria-label="Alejar Zoom">&minus;</button>
+                    <button id="geoResetBtn" class="geo-btn" title="Restablecer Vista" aria-label="Restablecer Vista">&#8635;</button>
+                    <button id="geoSelectBtn" class="geo-btn" title="Herramienta Selección / Mover" aria-label="Herramienta Selección">&#10021;</button>
+                    <button id="geoPaletteBtn" class="geo-btn" title="Paleta de Estilos y Curvas" aria-label="Paleta de Estilos">&#127912;</button>
+                    <button id="geoModalExpandBtn" class="geo-btn" title="Maximizar en Pantalla Completa" aria-label="Maximizar GeoGebra">&#x26F6;</button>
+                  </div>
+                </div>
+
+                <!-- Popup flotante de paleta y curvas -->
+                <div id="geoPalettePopup" class="geogebra-palette-popup">
+                  <div class="palette-section-title">Color de Curva $x(t)$</div>
+                  <div class="palette-colors-row">
+                    <div class="color-swatch active" data-color="#8b4f8c" style="background: #8b4f8c;"></div>
+                    <div class="color-swatch" data-color="#db2777" style="background: #db2777;"></div>
+                    <div class="color-swatch" data-color="#2563eb" style="background: #2563eb;"></div>
+                    <div class="color-swatch" data-color="#059669" style="background: #059669;"></div>
+                    <div class="color-swatch" data-color="#d97706" style="background: #d97706;"></div>
+                  </div>
+                  <div class="palette-section-title" style="margin-top: 8px;">Grosor de Trazo</div>
+                  <input type="range" id="strokeWidthSlider" min="1" max="5" step="0.5" value="2.5" style="width: 100%;">
+                  <div class="palette-section-title" style="margin-top: 8px;">Curvas Derivadas</div>
+                  <label style="font-size: 0.8rem; display: block; margin-bottom: 3px; color: #059669;">
+                    <input type="checkbox" id="toggleCurveV"> Mostrar Velocidad $v(t)$
+                  </label>
+                  <label style="font-size: 0.8rem; display: block; color: #dc2626;">
+                    <input type="checkbox" id="toggleCurveA"> Mostrar Aceleración $a(t)$
+                  </label>
+                </div>
+
+                <!-- Lienzo del Plano Cartesiano (320px) -->
+                <div class="geogebra-canvas-container" style="height: 290px;">
+                  <canvas id="geogebraCanvas" class="geogebra-canvas"></canvas>
+                  <div class="geogebra-coord-pill" id="geoCoordPill">(t: 0.00 s, x: 0.00 m)</div>
+                </div>
+
+                <!-- Barra de controles dinámicos de parámetros -->
+                <div class="geogebra-controls-bar">
+                  <div class="geo-slider-group">
+                    <div class="geo-slider-label">
+                      <span>Amplitud ($A$):</span>
+                      <span id="valParamA" class="val">1.5 m</span>
+                    </div>
+                    <input type="range" id="sliderParamA" class="geo-slider" min="0.2" max="3.0" step="0.1" value="1.5">
+                  </div>
+                  <div class="geo-slider-group">
+                    <div class="geo-slider-label">
+                      <span>Frec. Angular ($\omega$):</span>
+                      <span id="valParamOmega" class="val">2.0 rad/s</span>
+                    </div>
+                    <input type="range" id="sliderParamOmega" class="geo-slider" min="0.5" max="6.0" step="0.1" value="2.0">
+                  </div>
+                  <div class="geo-slider-group">
+                    <div class="geo-slider-label">
+                      <span>Fase Inicial ($\phi$):</span>
+                      <span id="valParamPhi" class="val">0.00 rad</span>
+                    </div>
+                    <input type="range" id="sliderParamPhi" class="geo-slider" min="-3.14" max="3.14" step="0.1" value="0.0">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Laboratorio GeoGebra &bull; Modelado Analítico</span>
+              <span>Pág. 13 de 20</span>
+            </div>
+          </article>
+
+          <!-- PÁGINA 14: SUITE DE 4 SIMULACIONES FÍSICAS INTERACTIVAS -->
+          <article class="book-page page-right" id="page-14">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Laboratorio Virtual</span>
+                <h2 class="page-title-script">Suite de Simulaciones 4-en-1</h2>
+              </div>
+              <span class="page-number-tag">Pág. 14</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="sim-container">
+                <!-- Barra superior de pestañas y botones de control -->
+                <div class="sim-header">
+                  <div class="sim-tab-group">
+                    <button class="sim-tab-btn active" data-mode="spring-phasor">1. Resorte + Fasor</button>
+                    <button class="sim-tab-btn" data-mode="oscilloscope">2. Osciloscopio</button>
+                    <button class="sim-tab-btn" data-mode="phasor">3. Fasor MCU</button>
+                    <button class="sim-tab-btn" data-mode="pendulum">4. Péndulo</button>
+                  </div>
+                  <div style="display: flex; gap: 6px;">
+                    <button id="simPlayBtn" class="sim-btn-play">⏸ Pausar</button>
+                    <button id="simResetBtn" class="geo-btn" title="Reiniciar Simulación">&#8635;</button>
+                  </div>
+                </div>
+
+                <!-- Lienzos duales interactivos (Spring + Phasor / Oscilloscope) -->
+                <div class="sim-display-split">
+                  <div class="sim-canvas-box">
+                    <canvas id="simSpringCanvas"></canvas>
+                    <span class="sim-tag-pill">Dinámica Real</span>
+                  </div>
+                  <div class="sim-canvas-box">
+                    <canvas id="simPhasorCanvas"></canvas>
+                    <span class="sim-tag-pill">Cinemática / Fasor</span>
+                  </div>
+                </div>
+
+                <!-- Panel de controles físicos deslizantes -->
+                <div class="geogebra-controls-bar" id="simSpringControls">
+                  <div class="geo-slider-group">
+                    <div class="geo-slider-label">
+                      <span>Masa ($m$):</span>
+                      <span id="simValMass" class="val">1.0 kg</span>
+                    </div>
+                    <input type="range" id="simSliderMass" class="geo-slider" min="0.2" max="4.0" step="0.1" value="1.0">
+                  </div>
+                  <div class="geo-slider-group">
+                    <div class="geo-slider-label">
+                      <span>Rigidez ($k$):</span>
+                      <span id="simValK" class="val">9.0 N/m</span>
+                    </div>
+                    <input type="range" id="simSliderK" class="geo-slider" min="2.0" max="25.0" step="1.0" value="9.0">
+                  </div>
+                  <div class="geo-slider-group">
+                    <div class="geo-slider-label">
+                      <span>Amplitud ($A$):</span>
+                      <span id="simValA" class="val">1.2 m</span>
+                    </div>
+                    <input type="range" id="simSliderA" class="geo-slider" min="0.2" max="2.0" step="0.1" value="1.2">
+                  </div>
+                </div>
+
+                <!-- Controles alternativos para el Péndulo -->
+                <div class="geogebra-controls-bar" id="simPendulumControls" style="display: none;">
+                  <div class="geo-slider-group">
+                    <div class="geo-slider-label">
+                      <span>Longitud del Péndulo ($L$):</span>
+                      <span id="simValL" class="val">1.50 m</span>
+                    </div>
+                    <input type="range" id="simSliderL" class="geo-slider" min="0.3" max="3.0" step="0.05" value="1.5">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Laboratorio Virtual de Física &bull; Suite 4-en-1</span>
+              <span>Pág. 14 de 20</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ==================================================================
+             PLIEGO 8 (SPREAD 7): PÁG. 15 (CASOS 1 Y 2) Y PÁG. 16 (CASOS 3, 4 Y 5)
+             ================================================================== -->
+        <div class="book-spread" id="spread-7" data-spread="7">
+          
+          <!-- PÁGINA 15: CASOS DE LA VIDA REAL 1 Y 2 CON FOTOS Y QUIZZES -->
+          <article class="book-page page-left" id="page-15">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Ingeniería Aplicada &bull; Casos 1 y 2</span>
+                <h2 class="page-title-script">Casos de la Vida Real (1 y 2)</h2>
+              </div>
+              <span class="page-number-tag">Pág. 15</span>
+            </div>
+
+            <div class="page-body-flow">
+              <!-- CASO 1: SUSPENSIÓN AUTOMOTRIZ -->
+              <div class="real-world-card card-rose">
+                <div class="real-world-header">
+                  <span class="real-world-badge" style="border-color:#fbcfe8; color:#9d174d;">🚗 Caso 1 &bull; Automotriz</span>
+                  <span class="seq-badge" style="background:#fce7f3; color:#9d174d;">Ing. Mecánica</span>
+                </div>
+                <h4 class="real-world-title">Sistema de Suspensión y Amortiguadores</h4>
+                
+                <div class="real-world-photo-frame" style="height: 120px;">
+                  <img src="IMAGENES/real_car_suspension.jpg" alt="Suspensión de automóvil" loading="lazy">
+                  <span class="photo-caption-tag">Resorte helicoidal + amortiguador hidráulico</span>
+                </div>
+
+                <div class="real-world-explanation">
+                  <strong>¿Qué está pasando?</strong> El peso del vehículo y las irregularidades de la carretera excitan el resorte en un MAS vertical. El amortiguador introduce disipación viscosa para alcanzar el <em>amortiguamiento crítico</em>.
+                </div>
+
+                <!-- Cuestionario interactivo Caso 1 -->
+                <div class="real-world-quiz">
+                  <div class="quiz-question-title">🎯 Pregunta Rápida de Ingeniería:</div>
+                  <div class="quiz-options-list">
+                    <button class="quiz-option-btn" data-correct="false" data-explanation="Un sistema subamortiguado provocaría que el vehículo oscilara continuamente, perdiendo adherencia con el pavimento.">
+                      <span class="quiz-letter">A</span>
+                      <span>Subamortiguado: para que oscile por mucho tiempo</span>
+                    </button>
+                    <button class="quiz-option-btn" data-correct="true" data-explanation="El amortiguamiento crítico (b = 2√(km)) disipa la energía en el menor tiempo posible sin oscilar, maximizando confort y seguridad.">
+                      <span class="quiz-letter">B</span>
+                      <span>Crítico ($b = 2\sqrt{km}$): para regresar al equilibrio sin oscilar</span>
+                    </button>
+                    <button class="quiz-option-btn" data-correct="false" data-explanation="Sin amortiguamiento (b = 0) las oscilaciones nunca se disiparían.">
+                      <span class="quiz-letter">C</span>
+                      <span>Sin amortiguamiento ($b = 0$)</span>
+                    </button>
+                  </div>
+                  <div class="quiz-feedback-box"></div>
+                </div>
+              </div>
+
+              <!-- CASO 2: MAQUINARIA INDUSTRIAL -->
+              <div class="real-world-card card-sage">
+                <div class="real-world-header">
+                  <span class="real-world-badge" style="border-color:#a7f3d0; color:#065f46;">🏭 Caso 2 &bull; Industrial</span>
+                  <span class="seq-badge" style="background:#ecfdf5; color:#065f46;">Ing. Industrial</span>
+                </div>
+                <h4 class="real-world-title">Aislamiento Sísmico y Antivibratorio de Maquinaria</h4>
+                
+                <div class="real-world-photo-frame" style="height: 120px;">
+                  <img src="IMAGENES/real_machinery_vibration.jpg" alt="Aisladores de maquinaria" loading="lazy">
+                  <span class="photo-caption-tag">Bancadas elásticas de aislamiento</span>
+                </div>
+
+                <div class="real-world-explanation">
+                  <strong>¿Qué está pasando?</strong> Motores y prensas generan fuerzas periódicas. Se montan sobre resortes calculados con $\omega_n \ll \omega_{\text{motor}}$ para evitar la resonancia destructiva.
+                </div>
+
+                <!-- Cuestionario interactivo Caso 2 -->
+                <div class="real-world-quiz">
+                  <div class="quiz-question-title">🎯 Criterio de Diseño Industrial:</div>
+                  <div class="quiz-options-list">
+                    <button class="quiz-option-btn" data-correct="true" data-explanation="Al sintonizar la frecuencia natural del soporte muy por debajo de la frecuencia de trabajo, la transmisibilidad de vibraciones a la planta se reduce drásticamente.">
+                      <span class="quiz-letter">A</span>
+                      <span>Operar lejos de la frecuencia natural $\omega_n = \sqrt{k/m}$</span>
+                    </button>
+                    <button class="quiz-option-btn" data-correct="false" data-explanation="La resonancia multiplica las amplitudes provocando fallas mecánicas severas y fatiga de materiales.">
+                      <span class="quiz-letter">B</span>
+                      <span>Hacer coincidir la frecuencia del motor con la resonancia</span>
+                    </button>
+                  </div>
+                  <div class="quiz-feedback-box"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Ingeniería Aplicada &bull; Casos 1 y 2</span>
+              <span>Pág. 15 de 20</span>
+            </div>
+          </article>
+
+          <!-- PÁGINA 16: CASOS DE LA VIDA REAL 3, 4 Y 5 CON PESTAÑAS -->
+          <article class="book-page page-right" id="page-16">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Ingeniería Aplicada &bull; Casos 3, 4 y 5</span>
+                <h2 class="page-title-script">Casos 3, 4 y 5 de la Vida Real</h2>
+              </div>
+              <span class="page-number-tag">Pág. 16</span>
+            </div>
+
+            <div class="page-body-flow">
+              <!-- Selector de casos 3, 4 y 5 -->
+              <div class="sim-tab-group" style="margin-bottom: 6px;">
+                <button class="case-tab-btn active" data-target="case-panel-3">Caso 3: Taipei 101</button>
+                <button class="case-tab-btn" data-target="case-panel-4">Caso 4: Reloj de Péndulo</button>
+                <button class="case-tab-btn" data-target="case-panel-5">Caso 5: Cuerdas de Guitarra</button>
+              </div>
+
+              <!-- CASO 3: TAIPEI 101 -->
+              <div class="case-content-pane active" id="case-panel-3">
+                <div class="real-world-card card-lavender">
+                  <div class="real-world-header">
+                    <span class="real-world-badge" style="border-color:#dcbfe0; color:#4a1d52;">🏙️ Caso 3 &bull; Civil y Estructural</span>
+                    <span class="seq-badge" style="background:#f3e8ff; color:#6b21a8;">Taipei 101</span>
+                  </div>
+                  <h4 class="real-world-title">Amortiguador de Masa Sintonizada (TMD)</h4>
+                  <div class="real-world-photo-frame" style="height: 145px;">
+                    <img src="IMAGENES/real_taipei101_damper.jpg" alt="Amortiguador Taipei 101" loading="lazy">
+                    <span class="photo-caption-tag">Esfera de 660 toneladas suspendida entre los pisos 87 y 92</span>
+                  </div>
+                  <div class="real-world-explanation">
+                    <strong>¿Qué está pasando?</strong> La esfera actúa como un péndulo sintonizado a la frecuencia natural del rascacielos ($\approx 0.15\text{ Hz}$). Cuando el viento o sismo desplaza la torre, el péndulo oscila en contrafase ($\pi\text{ rad}$) disipando la energía cinética.
+                  </div>
+                  <div class="real-world-quiz">
+                    <div class="quiz-question-title">🎯 Pregunta de Ingeniería Estructural:</div>
+                    <div class="quiz-options-list">
+                      <button class="quiz-option-btn" data-correct="false" data-explanation="El propósito de un TMD es mitigar las oscilaciones, nunca incrementarlas.">
+                        <span class="quiz-letter">A</span>
+                        <span>Aumentar la oscilación del edificio</span>
+                      </button>
+                      <button class="quiz-option-btn" data-correct="true" data-explanation="Al oscilar con desfase de 180° (oposición de fase), el péndulo ejerce una fuerza inercial contraria que reduce hasta un 40% el desplazamiento lateral.">
+                        <span class="quiz-letter">B</span>
+                        <span>Oscilar en contrafase ($\Delta\phi = 180^\circ$) reduciendo hasta un 40% el balanceo</span>
+                      </button>
+                    </div>
+                    <div class="quiz-feedback-box"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CASO 4: RELOJ DE PÉNDULO -->
+              <div class="case-content-pane" id="case-panel-4">
+                <div class="real-world-card card-cream">
+                  <div class="real-world-header">
+                    <span class="real-world-badge" style="border-color:#fde68a; color:#78350f;">🕰️ Caso 4 &bull; Cronometría de Precisión</span>
+                    <span class="seq-badge" style="background:#fef3c7; color:#92400e;">Mecanismo de Escape</span>
+                  </div>
+                  <h4 class="real-world-title">Mecanismo de Escape en Relojes de Péndulo</h4>
+                  <div class="real-world-photo-frame" style="height: 145px;">
+                    <img src="IMAGENES/real_pendulum_clock.jpg" alt="Reloj de péndulo" loading="lazy">
+                    <span class="photo-caption-tag">Péndulo isócrono calibrado con longitud $L \approx 0.994\text{ m}$</span>
+                  </div>
+                  <div class="real-world-explanation">
+                    <strong>¿Qué está pasando?</strong> Para un péndulo de $L = 0.994\text{ m}$, el semiperiodo es exactamente $1\text{ segundo}$ ($T = 2\text{ s}$). El mecanismo de escape transmite pequeños impulsos de energía de las pesas para contrarrestar la fricción del aire.
+                  </div>
+                  <div class="real-world-quiz">
+                    <div class="quiz-question-title">🎯 Pregunta de Calibración:</div>
+                    <div class="quiz-options-list">
+                      <button class="quiz-option-btn" data-correct="true" data-explanation="Dado que T = 2π√(L/g), al aumentar L el periodo T crece, lo que hace que el péndulo tarde más en cada ciclo y el reloj atrase.">
+                        <span class="quiz-letter">A</span>
+                        <span>Bajar la lenteja para aumentar $L$ y hacer que el reloj marche más lento</span>
+                      </button>
+                      <button class="quiz-option-btn" data-correct="false" data-explanation="En un péndulo simple ideal, el periodo es independiente de la masa m.">
+                        <span class="quiz-letter">B</span>
+                        <span>Aumentar la masa de la lenteja</span>
+                      </button>
+                    </div>
+                    <div class="quiz-feedback-box"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CASO 5: CUERDAS DE GUITARRA -->
+              <div class="case-content-pane" id="case-panel-5">
+                <div class="real-world-card card-rose">
+                  <div class="real-world-header">
+                    <span class="real-world-badge" style="border-color:#fbcfe8; color:#831843;">🎸 Caso 5 &bull; Acústica Musical</span>
+                    <span class="seq-badge" style="background:#fce7f3; color:#9d174d;">Ondas Estacionarias</span>
+                  </div>
+                  <h4 class="real-world-title">Vibración y Modos Normales en Instrumentos</h4>
+                  <div class="real-world-photo-frame" style="height: 145px;">
+                    <img src="IMAGENES/real_guitar_vibration.jpg" alt="Cuerdas de guitarra vibrando" loading="lazy">
+                    <span class="photo-caption-tag">Ondas estacionarias con frecuencia fundamental $f_1 = \frac{v}{2L}$</span>
+                  </div>
+                  <div class="real-world-explanation">
+                    <strong>¿Qué está pasando?</strong> Cada segmento infinitesimal de la cuerda ejecuta un MAS transversal a la frecuencia $f_n = \frac{n}{2L}\sqrt{\frac{T_{\text{tensión}}}{\mu}}$. La caja de resonancia amplifica las ondas sonoras audibles.
+                  </div>
+                  <div class="real-world-quiz">
+                    <div class="quiz-question-title">🎯 Pregunta de Acústica Aplicada:</div>
+                    <div class="quiz-options-list">
+                      <button class="quiz-option-btn" data-correct="false" data-explanation="Al aflojar la clavija disminuye la tensión, lo cual reduce la frecuencia produciendo una nota más grave.">
+                        <span class="quiz-letter">A</span>
+                        <span>Disminuir la tensión de la clavija</span>
+                      </button>
+                      <button class="quiz-option-btn" data-correct="true" data-explanation="Al acortar la longitud libre vibrante L, la frecuencia f1 = v/(2L) aumenta, emitiendo un tono más agudo.">
+                        <span class="quiz-letter">B</span>
+                        <span>Pisar un traste para reducir la longitud vibrante $L$ aumentando $f$</span>
+                      </button>
+                    </div>
+                    <div class="quiz-feedback-box"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Ingeniería Aplicada &bull; Casos 3, 4 y 5</span>
+              <span>Pág. 16 de 20</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ==================================================================
+             PLIEGO 9 (SPREAD 8): PÁG. 17 (PROBLEMA 1) Y PÁG. 18 (PROBLEMA 2)
+             ================================================================== -->
+        <div class="book-spread" id="spread-8" data-spread="8">
+          
+          <!-- PÁGINA 17: EJERCICIO RESUELTO 1 -->
+          <article class="book-page page-left" id="page-17">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Metodología de Resolución</span>
+                <h2 class="page-title-script">Problema 1: Sensor Industrial</h2>
+              </div>
+              <span class="page-number-tag">Pág. 17</span>
+            </div>
+
+            <div class="page-body-flow">
+              <!-- ENUNCIADO -->
+              <div class="exercise-statement" style="padding: 6px 12px; margin-bottom: 6px; font-size: 0.82rem;">
+                <strong>Enunciado de Ingeniería:</strong> Un sensor industrial de masa $m = 0.25\text{ kg}$ está acoplado a un resorte de rigidez $k = 400\text{ N/m}$. Se desplaza $x_0 = 0.05\text{ m}$ desde el equilibrio y se libera desde el reposo ($v_0 = 0$). Calcule: <strong>a)</strong> Periodo $T$ y frecuencia $f$, <strong>b)</strong> Velocidad máxima $v_{\max}$, <strong>c)</strong> Aceleración máxima $a_{\max}$, <strong>d)</strong> Energía mecánica total $E_m$.
+              </div>
+
+              <!-- PASO 1: DATOS -->
+              <div class="step-card step-datos" style="padding: 6px 12px; margin-bottom: 4px;">
+                <div class="step-card-header" style="margin-bottom: 2px;">
+                  <span class="step-badge">1</span>
+                  <span>Paso 1: Identificación Rigurosa de Datos</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #1e3a8a;">
+                  $m = 0.25\text{ kg}$, $k = 400\text{ N/m}$, $A = 0.05\text{ m}$, $v_0 = 0\text{ m/s}$ ($\phi = 0\text{ rad}$).
+                </div>
+              </div>
+
+              <!-- PASO 2: INCÓGNITAS -->
+              <div class="step-card step-incognita" style="padding: 6px 12px; margin-bottom: 4px;">
+                <div class="step-card-header" style="margin-bottom: 2px;">
+                  <span class="step-badge">2</span>
+                  <span>Paso 2: Formulación de Incógnitas</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #991b1b;">
+                  $T = ?$, $f = ?$, $\omega = ?$, $v_{\max} = ?$, $a_{\max} = ?$, $E_m = ?$.
+                </div>
+              </div>
+
+              <!-- PASO 3: PRINCIPIOS Y FÓRMULAS -->
+              <div class="step-card step-principio" style="padding: 6px 12px; margin-bottom: 4px;">
+                <div class="step-card-header" style="margin-bottom: 2px;">
+                  <span class="step-badge">3</span>
+                  <span>Paso 3: Principios Físicos Aplicables</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #581c87;">
+                  $\omega = \sqrt{k/m}$, $T = 2\pi/\omega$, $v_{\max} = \omega A$, $a_{\max} = \omega^2 A$, $E_m = \frac{1}{2}kA^2$.
+                </div>
+              </div>
+
+              <!-- PASO 4 Y 5: CÁLCULOS Y SUSTITUCIÓN -->
+              <div class="step-card step-calculo" style="padding: 6px 12px; margin-bottom: 4px;">
+                <div class="step-card-header" style="margin-bottom: 2px;">
+                  <span class="step-badge">4-5</span>
+                  <span>Pasos 4 y 5: Despeje y Cálculo Numérico</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #064e3b; line-height: 1.45;">
+                  &bull; $\omega = \sqrt{400 / 0.25} = \sqrt{1600} = \mathbf{40.0\text{ rad/s}}$<br>
+                  &bull; $T = 2\pi / 40.0 = \mathbf{0.157\text{ s}}$ &bull; $f = 1 / T = \mathbf{6.37\text{ Hz}}$<br>
+                  &bull; $v_{\max} = 40.0 \times 0.05 = \mathbf{2.00\text{ m/s}}$<br>
+                  &bull; $a_{\max} = (40.0)^2 \times 0.05 = 1600 \times 0.05 = \mathbf{80.0\text{ m/s²}}$<br>
+                  &bull; $E_m = \frac{1}{2}(400)(0.05)^2 = 200 \times 0.0025 = \mathbf{0.50\text{ J}}$
+                </div>
+              </div>
+
+              <!-- PASO 6: CONCLUSIÓN DE INGENIERÍA -->
+              <div class="step-card step-valido" style="padding: 6px 12px;">
+                <div class="step-card-header" style="margin-bottom: 2px;">
+                  <span class="step-badge">6</span>
+                  <span>Paso 6: Conclusión y Criterio de Ingeniería</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #065f46; line-height: 1.38;">
+                  La aceleración máxima de $80\text{ m/s²}$ ($\approx 8.16\text{ g}$) exige que el encapsulado del sensor soporte esfuerzos mecánicos dinámicos significativos en cada ciclo de $157\text{ ms}$.
+                </p>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Metodología de 6 Pasos &bull; Problema 1</span>
+              <span>Pág. 17 de 20</span>
+            </div>
+          </article>
+
+          <!-- PÁGINA 18: EJERCICIO RESUELTO 2 -->
+          <article class="book-page page-right" id="page-18">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Metodología de Resolución</span>
+                <h2 class="page-title-script">Problema 2: Ecuación Horaria</h2>
+              </div>
+              <span class="page-number-tag">Pág. 18</span>
+            </div>
+
+            <div class="page-body-flow">
+              <!-- ENUNCIADO -->
+              <div class="exercise-statement" style="padding: 6px 12px; margin-bottom: 6px; font-size: 0.82rem;">
+                <strong>Enunciado:</strong> Un oscilador armónico horizontal tiene una masa $m = 0.5\text{ kg}$ y realiza $2\text{ oscilaciones completas por segundo}$ ($f = 2\text{ Hz}$). En $t = 0$, la partícula se encuentra en $x(0) = +0.06\text{ m}$ con velocidad $v(0) = -0.48\pi\sqrt{3}\text{ m/s}$. Determine la ecuación horaria completa $x(t)$, $v(t)$, $a(t)$ y evalúe las magnitudes cinemáticas en $t = 1.5\text{ s}$.
+              </div>
+
+              <!-- PASO 1 Y 2: DATOS E INCÓGNITAS -->
+              <div class="step-card step-datos" style="padding: 6px 12px; margin-bottom: 4px;">
+                <div class="step-card-header" style="margin-bottom: 2px;">
+                  <span class="step-badge">1-2</span>
+                  <span>Pasos 1 y 2: Datos e Incógnitas</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #1e3a8a;">
+                  $f = 2\text{ Hz} \Rightarrow \omega = 2\pi(2) = 4\pi\text{ rad/s}$. $x(0) = 0.06\text{ m}$, $v(0) = -0.48\pi\sqrt{3}\text{ m/s}$. Hallar $A, \phi, x(1.5), v(1.5), a(1.5)$.
+                </div>
+              </div>
+
+              <!-- PASO 3 Y 4: CONDICIONES INICIALES Y FASE -->
+              <div class="step-card step-despeje" style="padding: 6px 12px; margin-bottom: 4px;">
+                <div class="step-card-header" style="margin-bottom: 2px;">
+                  <span class="step-badge">3-4</span>
+                  <span>Pasos 3 y 4: Determinación de la Amplitud y Fase Inicial</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #78350f; line-height: 1.45;">
+                  &bull; $\tan\phi = -\frac{v_0}{\omega x_0} = -\frac{-0.48\pi\sqrt{3}}{(4\pi)(0.06)} = \frac{0.48\sqrt{3}}{0.24} = \sqrt{3} \implies \mathbf{\phi = \frac{\pi}{3}\text{ rad} = 60^\circ}$<br>
+                  &bull; $A = \frac{x_0}{\cos\phi} = \frac{0.06}{\cos(60^\circ)} = \frac{0.06}{0.5} = \mathbf{0.12\text{ m}}$
+                </div>
+              </div>
+
+              <!-- PASO 5: ECUACIONES HORARIAS Y EVALUACIÓN EN t = 1.5 s -->
+              <div class="step-card step-calculo" style="padding: 6px 12px; margin-bottom: 4px;">
+                <div class="step-card-header" style="margin-bottom: 2px;">
+                  <span class="step-badge">5</span>
+                  <span>Paso 5: Ecuaciones Horarias y Evaluación en $t = 1.5\text{ s}$</span>
+                </div>
+                <div style="font-size: 0.8rem; color: #064e3b; line-height: 1.45;">
+                  &bull; $x(t) = 0.12 \cos(4\pi t + \pi/3)$<br>
+                  &bull; En $t = 1.5\text{ s} \Rightarrow \text{Fase} = 4\pi(1.5) + \pi/3 = 6\pi + \pi/3 \equiv \pi/3\text{ rad}$<br>
+                  &bull; $x(1.5) = 0.12\cos(\pi/3) = \mathbf{+0.06\text{ m}}$<br>
+                  &bull; $v(1.5) = -(4\pi)(0.12)\sin(\pi/3) = -0.48\pi\frac{\sqrt{3}}{2} = \mathbf{-1.306\text{ m/s}}$<br>
+                  &bull; $a(1.5) = -\omega^2 x = -(4\pi)^2(0.06) = -16\pi^2(0.06) = \mathbf{-9.475\text{ m/s²}}$
+                </div>
+              </div>
+
+              <!-- PASO 6: VALIDACIÓN -->
+              <div class="step-card step-valido" style="padding: 6px 12px;">
+                <div class="step-card-header" style="margin-bottom: 2px;">
+                  <span class="step-badge">6</span>
+                  <span>Paso 6: Validación Energética y Criterio Físico</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #065f46; line-height: 1.38;">
+                  Dado que $T = 1/f = 0.5\text{ s}$, en $t = 1.5\text{ s} = 3T$, el sistema ha completado exactamente 3 ciclos completos, retornando idénticamente a las condiciones iniciales de posición y velocidad.
+                </p>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Metodología de 6 Pasos &bull; Problema 2</span>
+              <span>Pág. 18 de 20</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ==================================================================
+             PLIEGO 10 (SPREAD 9): PÁG. 19 (GLOSARIO) Y PÁG. 20 (REFERENCIAS APA 7)
+             ================================================================== -->
+        <div class="book-spread" id="spread-9" data-spread="9">
+          
+          <!-- PÁGINA 19: GLOSARIO VISUAL E INTERACTIVO DEL MAS -->
+          <article class="book-page page-left" id="page-19">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Léxico Técnico</span>
+                <h2 class="page-title-script">Glosario Académico del M.A.S.</h2>
+              </div>
+              <span class="page-number-tag">Pág. 19</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="banner-pill banner-lavender">
+                <span>📚 8 Términos Clave de la Mecánica Oscilatoria</span>
+              </div>
+
+              <div class="glossary-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+                <!-- TÉRMINO 1 -->
+                <div class="editorial-card card-lavender" style="padding: 6px 10px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong style="color: #4a1d52; font-size: 0.82rem;">1. Elongación ($x$)</strong>
+                    <span class="seq-badge" style="background:#f3e8ff; color:#6b21a8; font-size:0.68rem;">[m]</span>
+                  </div>
+                  <p style="font-size: 0.76rem; color: #432549; line-height: 1.35; margin-top: 2px;">
+                    Desplazamiento vectorial instantáneo respecto al equilibrio en cualquier instante $t$.
+                  </p>
+                </div>
+
+                <!-- TÉRMINO 2 -->
+                <div class="editorial-card card-rose" style="padding: 6px 10px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong style="color: #831843; font-size: 0.82rem;">2. Amplitud ($A$)</strong>
+                    <span class="seq-badge" style="background:#fce7f3; color:#9d174d; font-size:0.68rem;">[m]</span>
+                  </div>
+                  <p style="font-size: 0.76rem; color: #432549; line-height: 1.35; margin-top: 2px;">
+                    Máximo alejamiento escalar respecto a la posición central de equilibrio: $A = |x|_{\max} > 0$.
+                  </p>
+                </div>
+
+                <!-- TÉRMINO 3 -->
+                <div class="editorial-card card-sage" style="padding: 6px 10px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong style="color: #065f46; font-size: 0.82rem;">3. Periodo ($T$)</strong>
+                    <span class="seq-badge" style="background:#ecfdf5; color:#065f46; font-size:0.68rem;">[s]</span>
+                  </div>
+                  <p style="font-size: 0.76rem; color: #432549; line-height: 1.35; margin-top: 2px;">
+                    Tiempo invertido por el sistema en ejecutar un ciclo completo de oscilación ($T = 2\pi/\omega$).
+                  </p>
+                </div>
+
+                <!-- TÉRMINO 4 -->
+                <div class="editorial-card card-cream" style="padding: 6px 10px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong style="color: #78350f; font-size: 0.82rem;">4. Frecuencia ($f$)</strong>
+                    <span class="seq-badge" style="background:#fef3c7; color:#92400e; font-size:0.68rem;">[Hz]</span>
+                  </div>
+                  <p style="font-size: 0.76rem; color: #432549; line-height: 1.35; margin-top: 2px;">
+                    Número de oscilaciones completas efectuadas por unidad de tiempo: $f = 1/T = \omega/(2\pi)$.
+                  </p>
+                </div>
+
+                <!-- TÉRMINO 5 -->
+                <div class="editorial-card card-lavender" style="padding: 6px 10px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong style="color: #4a1d52; font-size: 0.82rem;">5. Frecuencia Angular ($\omega$)</strong>
+                    <span class="seq-badge" style="background:#f3e8ff; color:#6b21a8; font-size:0.68rem;">[rad/s]</span>
+                  </div>
+                  <p style="font-size: 0.76rem; color: #432549; line-height: 1.35; margin-top: 2px;">
+                    Rapidez de rotación del vector fasor asociado al movimiento: $\omega = \sqrt{k/m}$.
+                  </p>
+                </div>
+
+                <!-- TÉRMINO 6 -->
+                <div class="editorial-card card-rose" style="padding: 6px 10px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong style="color: #831843; font-size: 0.82rem;">6. Fase Inicial ($\phi$)</strong>
+                    <span class="seq-badge" style="background:#fce7f3; color:#9d174d; font-size:0.68rem;">[rad]</span>
+                  </div>
+                  <p style="font-size: 0.76rem; color: #432549; line-height: 1.35; margin-top: 2px;">
+                    Ángulo de desfase que describe la posición y dirección de movimiento en $t = 0$.
+                  </p>
+                </div>
+
+                <!-- TÉRMINO 7 -->
+                <div class="editorial-card card-sage" style="padding: 6px 10px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong style="color: #065f46; font-size: 0.82rem;">7. Constante Elástica ($k$)</strong>
+                    <span class="seq-badge" style="background:#ecfdf5; color:#065f46; font-size:0.68rem;">[N/m]</span>
+                  </div>
+                  <p style="font-size: 0.76rem; color: #432549; line-height: 1.35; margin-top: 2px;">
+                    Medida cuantitativa de la rigidez del resorte o medio deformante elástico.
+                  </p>
+                </div>
+
+                <!-- TÉRMINO 8 -->
+                <div class="editorial-card card-cream" style="padding: 6px 10px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <strong style="color: #78350f; font-size: 0.82rem;">8. Fuerza Restauradora ($\vec{F}$)</strong>
+                    <span class="seq-badge" style="background:#fef3c7; color:#92400e; font-size:0.68rem;">[N]</span>
+                  </div>
+                  <p style="font-size: 0.76rem; color: #432549; line-height: 1.35; margin-top: 2px;">
+                    Fuerza dirigida invariablemente hacia el equilibrio que origina el vaivén periódico.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Léxico Normativo SI &bull; Términos 1 al 8</span>
+              <span>Pág. 19 de 20</span>
+            </div>
+          </article>
+
+          <!-- PÁGINA 20: REFERENCIAS BIBLIOGRÁFICAS MEJORADA EN NORMAS APA 7 -->
+          <article class="book-page page-right" id="page-20">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Fuentes Académicas &bull; Normas APA 7.ª Edición</span>
+                <h2 class="page-title-script">Referencias Bibliográficas</h2>
+              </div>
+              <span class="page-number-tag">Pág. 20</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="banner-pill banner-lavender">
+                <span>📖 Fuentes Bibliográficas & Literatura Universitaria</span>
+              </div>
+
+              <!-- REFERENCIA 1: SERWAY -->
+              <div class="editorial-card card-lavender" style="padding: 7px 12px; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                  <strong style="color: #3b1d42; font-size: 0.84rem;">1. Física para Ciencias e Ingeniería</strong>
+                  <span class="seq-badge" style="background:#f3e8ff; color:#6b21a8; font-size: 0.7rem;">Texto Guía</span>
+                </div>
+                <div style="font-size: 0.79rem; color: #4a2853; line-height: 1.38;">
+                  <strong>Serway, R. A., & Jewett, J. W. (2018).</strong> <em>Física para ciencias e ingeniería</em> (10.ª ed., Vol. 1). Cengage Learning. Capítulo 15: Movimiento oscilatorio, Ley de Hooke y energía del MAS (pp. 445–478).
+                </div>
+              </div>
+
+              <!-- REFERENCIA 2: TIPLER -->
+              <div class="editorial-card card-rose" style="padding: 7px 12px; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                  <strong style="color: #831843; font-size: 0.84rem;">2. Mecánica, Oscilaciones y Ondas</strong>
+                  <span class="seq-badge" style="background:#fce7f3; color:#9d174d; font-size: 0.7rem;">Dinámica</span>
+                </div>
+                <div style="font-size: 0.79rem; color: #521d37; line-height: 1.38;">
+                  <strong>Tipler, P. A., & Mosca, G. (2021).</strong> <em>Física para la ciencia y la tecnología: Mecánica, oscilaciones y ondas</em> (6.ª ed., Vol. 1). Editorial Reverté. Capítulo 14: Oscilaciones armónicas y amortiguamiento (pp. 451–488).
+                </div>
+              </div>
+
+              <!-- REFERENCIA 3: HALLIDAY & RESNICK -->
+              <div class="editorial-card card-cream" style="padding: 7px 12px; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                  <strong style="color: #78350f; font-size: 0.84rem;">3. Fundamentos de Física Clásica</strong>
+                  <span class="seq-badge" style="background:#fef3c7; color:#92400e; font-size: 0.7rem;">Resonancia</span>
+                </div>
+                <div style="font-size: 0.79rem; color: #5c3f15; line-height: 1.38;">
+                  <strong>Halliday, D., Resnick, R., & Walker, J. (2018).</strong> <em>Fundamentos de Física</em> (10.ª ed., Vol. 1). Grupo Editorial Patria. Capítulo 15: Oscilaciones forzadas y resonancia (pp. 413–444).
+                </div>
+              </div>
+
+              <!-- REFERENCIA 4: FRENCH MIT -->
+              <div class="editorial-card card-sage" style="padding: 7px 12px; margin-bottom: 3px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                  <strong style="color: #065f46; font-size: 0.84rem;">4. Vibraciones y Ondas (Curso MIT)</strong>
+                  <span class="seq-badge" style="background:#ecfdf5; color:#065f46; font-size: 0.7rem;">MIT Physics</span>
+                </div>
+                <div style="font-size: 0.79rem; color: #1c523f; line-height: 1.38;">
+                  <strong>French, A. P. (2012).</strong> <em>Vibraciones y ondas: Curso de física del MIT</em>. Editorial Reverté. Capítulos 1–3: Movimientos periódicos y superposición de osciladores armónicos (pp. 3–92).
+                </div>
+              </div>
+
+              <!-- SELLO INSTITUCIONAL Y CRÉDITOS UNIVERSITARIOS OFICIALES -->
+              <div class="editorial-card card-lavender" style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 8px 16px; background: linear-gradient(135deg, #fffdfa 0%, #f7eff9 100%);">
+                <div>
+                  <strong style="color: #3b1744; font-size: 0.88rem; display: block;">Universidad Tecnológica de Pereira (UTP) &bull; 2026</strong>
+                  <span style="font-size: 0.78rem; color: #6a4f73;">Facultad de Ingeniería &bull; Programa de Ingeniería Industrial &bull; Semestre 7</span><br>
+                  <span style="font-size: 0.76rem; color: var(--primary-accent); font-weight: 700;">Autoras: Danna Yised Arias Martínez &amp; Laura Yicel Ocampo Rodríguez</span>
+                </div>
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--utp-red), var(--utp-gold), var(--utp-green)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 0.85rem; box-shadow: 0 4px 10px rgba(0,0,0,0.18); flex-shrink: 0; border: 2px solid #ffffff;">
+                  UTP
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Referencias APA 7 &bull; Créditos Institucionales UTP</span>
+              <span>Pág. 20 de 20</span>
+            </div>
+          </article>
+
+        </div>
+        <!-- PLIEGO 10: PÁGINAS 21 Y 22 (AGRADECIMIENTOS & REFLEXIÓN UNIVERSITARIA) -->
+        <div class="book-spread" id="spread-10" data-spread="10">
+          
+          <!-- PÁGINA 21: AGRADECIMIENTOS Y RECONOCIMIENTO -->
+          <article class="book-page page-left" id="page-21">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Cierre Editorial &bull; Gratitud Universitaria</span>
+                <h2 class="page-title-script">¡Muchas Gracias!</h2>
+              </div>
+              <span class="page-number-tag">Pág. 21</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="banner-pill banner-lavender">
+                <span>🌸 Agradecimiento a la Comunidad Académica & Formativa</span>
+              </div>
+
+              <div class="editorial-card card-cream" style="padding: 11px 14px; margin-bottom: 7px;">
+                <p style="font-size: 0.87rem; line-height: 1.55; color: #4a2800; margin-bottom: 5px;">
+                  Expresamos nuestro más sincero agradecimiento a los docentes del área de <strong>Física III y Ciencias Básicas</strong> de la <strong>Universidad Tecnológica de Pereira</strong>, cuya dedicación, rigurosidad metodológica y vocación docente inspiraron la creación de este cuaderno digital interactivo.
+                </p>
+                <p style="font-size: 0.84rem; line-height: 1.48; color: #5a3500; margin: 0;">
+                  Gracias por cultivar en nosotros el pensamiento crítico, la curiosidad analítica y el rigor científico necesario para modelar y comprender el universo desde las leyes fundamentales de la física y la ingeniería.
+                </p>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 7px;">
+                <div class="editorial-card card-rose" style="padding: 10px 12px;">
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                    <span style="font-size: 1.15rem;">👥</span>
+                    <strong style="color: #831843; font-size: 0.84rem;">A los Compañeros</strong>
+                  </div>
+                  <p style="font-size: 0.79rem; line-height: 1.42; color: #521d37; margin: 0;">
+                    Por cada jornada de estudio colaborativo, resolución de ecuaciones diferenciales y debate en los laboratorios. El trabajo en equipo transforma retos complejos en grandes aprendizajes colectivos.
+                  </p>
+                </div>
+
+                <div class="editorial-card card-sage" style="padding: 10px 12px;">
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                    <span style="font-size: 1.15rem;">🏛️</span>
+                    <strong style="color: #065f46; font-size: 0.84rem;">A Nuestra Alma Máter</strong>
+                  </div>
+                  <p style="font-size: 0.79rem; line-height: 1.42; color: #144e3b; margin: 0;">
+                    A la <strong>UTP</strong>, por brindarnos espacios de innovación, laboratorios de vanguardia y una formación integral de excelencia que impulsa el desarrollo regional, científico y humano.
+                  </p>
+                </div>
+              </div>
+
+              <div class="editorial-card card-lavender" style="padding: 10px 14px; text-align: center; background: linear-gradient(135deg, #fbf7ff 0%, #f3e8ff 100%);">
+                <span style="font-size: 1.25rem; display: block; margin-bottom: 3px;">✨ 🔬 📐 💡 ✨</span>
+                <strong style="color: #4a1d6d; font-size: 0.88rem; display: block;">"El conocimiento se multiplica cuando se comparte con pasión, rigor y vocación."</strong>
+                <span style="font-size: 0.78rem; color: #6b21a8; font-weight: 600;">— Proyecto Cuaderno Digital Interactivo &bull; Física III &bull; 2026</span>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Cierre Académico &bull; Universidad Tecnológica de Pereira</span>
+              <span>Pág. 21 de 22</span>
+            </div>
+          </article>
+
+          <!-- PÁGINA 22: REFLEXIÓN UNIVERSITARIA "NUNCA TE RINDAS EN APRENDER" -->
+          <article class="book-page page-right" id="page-22">
+            <div class="page-header-row">
+              <div>
+                <span class="page-category-label">Inspiración Universitaria &bull; Mensaje Formativo</span>
+                <h2 class="page-title-script">Nunca te Rindas en Aprender</h2>
+              </div>
+              <span class="page-number-tag">Pág. 22</span>
+            </div>
+
+            <div class="page-body-flow">
+              <div class="banner-pill banner-sage">
+                <span>🌱 Reflexión para Estudiantes Universitarios y Futuros Ingenieros</span>
+              </div>
+
+              <div class="editorial-card card-rose" style="padding: 10px 14px; margin-bottom: 7px; border-left: 4px solid var(--pastel-rose-border);">
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                  <span style="font-size: 1.5rem; line-height: 1;">⚡</span>
+                  <div>
+                    <strong style="color: #831843; font-size: 0.88rem; display: block; margin-bottom: 3px;">La Ley de la Resonancia del Esfuerzo</strong>
+                    <p style="font-size: 0.82rem; line-height: 1.48; color: #521d37; margin: 0;">
+                      En física aprendemos que cuando aplicamos una fuerza periódica a un oscilador, aunque la amplitud inicial parezca mínima, al alcanzar la frecuencia correcta el sistema entra en <em>resonancia</em> y desata su máxima energía. De la misma manera opera el aprendizaje: <strong>la perseverancia diaria y el estudio continuo amplifican tu mente hasta conquistar los desafíos más complejos.</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="editorial-card card-cream" style="padding: 10px 14px; margin-bottom: 7px;">
+                <strong style="color: #78350f; font-size: 0.86rem; display: block; margin-bottom: 4px;">💡 Cuatro Claves para Triunfar en la Universidad:</strong>
+                <ul style="margin: 0; padding-left: 18px; font-size: 0.80rem; color: #45220a; line-height: 1.48;">
+                  <li style="margin-bottom: 3px;"><strong>El error es aprendizaje:</strong> Un ejercicio fallido o un concepto difícil no es un límite, sino el punto exacto donde comienza tu comprensión real.</li>
+                  <li style="margin-bottom: 3px;"><strong>La curiosidad supera al miedo:</strong> Pregunta sin reservas, simula modelos y busca aplicaciones reales en tu profesión.</li>
+                  <li style="margin-bottom: 3px;"><strong>Tu esfuerzo tiene valor acumulativo:</strong> Cada hora dedicada a la lectura y al análisis construye la base sólida de tu futuro como ingeniero.</li>
+                  <li><strong>Confía en tu potencial:</strong> La inteligencia no es fija; se forja con disciplina, paciencia y amor por el conocimiento.</li>
+                </ul>
+              </div>
+
+              <!-- SELLO DE HONOR Y MENSAJE FINAL -->
+              <div class="editorial-card card-lavender" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; background: linear-gradient(135deg, #fdfbfe 0%, #f5e9f8 100%);">
+                <div>
+                  <strong style="color: #3b1744; font-size: 0.88rem; display: block; margin-bottom: 2px;">¡Adelante, Futuro Ingeniero y Científico de la UTP!</strong>
+                  <span style="font-size: 0.79rem; color: #6a4f73; line-height: 1.4; display: block;">
+                    Tu viaje de descubrimiento apenas comienza. Construye con rigor, innova con pasión y deja una huella imborrable.
+                  </span>
+                </div>
+                <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #f43f5e, #8b5cf6, #10b981); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 1.35rem; box-shadow: 0 4px 12px rgba(139,92,246,0.3); flex-shrink: 0; border: 2px solid #ffffff;">
+                  🚀
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer-row">
+              <span>Reflexión Final &bull; Cuaderno Digital Interactivo</span>
+              <span>Pág. 22 de 22</span>
+            </div>
+          </article>
+
+        </div>
+
+
+      </div>
+    </main>
+
+    <!-- BARRA DE NAVEGACIÓN INFERIOR COMPACTA -->
+    <footer class="spread-nav-container">
+      <nav class="spread-nav-bar" aria-label="Navegación de pliegos del cuaderno">
+        <button id="spreadPrevBtn" class="nav-btn" aria-label="Voltear a página anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Pág. Anterior</span>
+        </button>
+
+        <div class="spread-pager-indicator">
+          <button id="spreadHomeBtn" class="btn-icon" title="Volver a la portada" aria-label="Ir a la portada">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </button>
+          <span id="spreadIndicator">Págs. 1 y 2 de 20</span>
+          <select id="spreadSelect" aria-label="Seleccionar pliego directo">
+            <option value="0">Pliego 1: Págs. 1 y 2 (Portada & Presentación)</option>
+            <option value="1">Pliego 2: Págs. 3 y 4 (Índice & Línea de Tiempo)</option>
+            <option value="2">Pliego 3: Págs. 5 y 6 (Mapa Mental & Oscilatorio)</option>
+            <option value="3">Pliego 4: Págs. 7 y 8 (Parámetros & Ley de Hooke)</option>
+            <option value="4">Pliego 5: Págs. 9 y 10 (Ecuación Canónica & Demo EDO)</option>
+            <option value="5">Pliego 6: Págs. 11 y 12 (Cinemática & Estados Notables)</option>
+            <option value="6">Pliego 7: Págs. 13 y 14 (GeoGebra & Simulador 4-en-1)</option>
+            <option value="7">Pliego 8: Págs. 15 y 16 (Casos 1, 2, 3, 4 y 5 Reales)</option>
+            <option value="8">Pliego 9: Págs. 17 y 18 (Problemas Resueltos 1 y 2)</option>
+            <option value="9">Pliego 10: Págs. 19 y 20 (Glosario & Referencias APA 7)</option>
+            <option value="10">Pliego 11: Págs. 21 y 22 (Agradecimientos & Reflexión)</option>
+          </select>
+        </div>
+
+        <button id="spreadNextBtn" class="nav-btn primary" aria-label="Voltear a página siguiente">
+          <span>Pág. Siguiente</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </nav>
+
+      <div class="app-footer">
+        <p>Cuaderno Digital Universitario de Física III &bull; <span class="author-names">Danna Yised Arias Martínez & Laura Yicel Ocampo Rodríguez</span> <span class="utp-tag">&bull; Universidad Tecnológica de Pereira</span></p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- MODAL DE PANTALLA COMPLETA GEOGEBRA -->
+  <div id="geogebraModal" class="geogebra-modal-overlay" role="dialog" aria-modal="true" aria-label="Plano GeoGebra Pantalla Completa">
+    <div class="geogebra-modal-window">
+      <div class="modal-header">
+        <div class="geogebra-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+          <span style="font-weight: 800; font-size: 1.1rem; color: #3b1744;">Laboratorio GeoGebra &bull; Vista de Gran Escala</span>
+        </div>
+        <button id="modalCloseBtn" class="modal-close-btn" aria-label="Cerrar modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-canvas-area">
+          <canvas id="modalGeoCanvas"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts Modulares -->
+  <script src="js/mindmap.js?v=7"></script>
+  <script src="js/geogebraEngine.js?v=7"></script>
+  <script src="js/physicsSimulation.js?v=7"></script>
+  <script src="js/app.js?v=7"></script>
+</body>
+</html>

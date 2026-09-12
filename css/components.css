@@ -1,0 +1,916 @@
+/* ==========================================================================
+   COMPONENTS CSS - FOTOGRAFÍAS REALES, CASOS DE LA VIDA REAL,
+   SIMULADOR FÍSICO EXPANDIDO Y DIAGRAMAS GRANDES
+   ========================================================================== */
+
+/* ==========================================================================
+   SECCIÓN: 🌎 ¿DÓNDE ENCONTRAMOS ESTO EN LA VIDA REAL? (CON FOTOGRAFÍAS REALES)
+   ========================================================================== */
+.real-world-card {
+  background: linear-gradient(135deg, #fefaff 0%, #f7eff9 60%, #edf6f2 100%);
+  border: 1.5px solid #d8c3e2;
+  border-radius: 14px;
+  padding: 8px 12px;
+  margin: 2px 0 4px 0;
+  box-shadow: 0 4px 16px rgba(80, 40, 90, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.real-world-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(139, 79, 140, 0.18);
+}
+
+.real-world-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #5c2060;
+  border: 1px solid #d8c3e2;
+}
+
+.real-world-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #3b1d42;
+  margin: 1px 0 3px 0;
+}
+
+/* MARCO PARA FOTOGRAFÍA REAL ADAPTABLE */
+.real-world-photo-frame {
+  width: 100%;
+  height: clamp(130px, 19vh, 175px);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1.5px solid #d4c2dc;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  position: relative;
+  background: #f0e6f2;
+  flex-shrink: 0;
+}
+
+.real-world-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.real-world-photo-frame:hover img {
+  transform: scale(1.02);
+}
+
+.photo-caption-tag {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: rgba(35, 12, 40, 0.75);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* BLOQUE ¿QUÉ ESTÁ PASANDO? */
+.real-world-explanation {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 6px 10px;
+  border: 1px solid #ebdfee;
+  font-size: 0.84rem;
+  color: #38243e;
+  line-height: 1.45;
+}
+
+/* 🔬 RELACIÓN CON LA FÍSICA Y 💡 DATO CURIOSO */
+.real-world-physics-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.real-world-subbox {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 5px 10px;
+  border: 1px solid #ebdfee;
+  font-size: 0.8rem;
+}
+
+.real-world-subbox h5 {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary-accent);
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 🎯 CUESTIONARIO INTERACTIVO (MINI-QUIZ) */
+.real-world-quiz {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 8px 12px;
+  border: 1.5px solid #e2d3e7;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.quiz-question-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #491e52;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quiz-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #e2d3e7;
+  background: #fbf9fd;
+  color: #38253e;
+  font-size: 0.84rem;
+  font-family: var(--font-body);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.quiz-option-btn:hover {
+  background: var(--primary-soft);
+  border-color: var(--primary-accent);
+  transform: translateX(4px);
+}
+
+.quiz-option-btn.selected-correct {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #065f46;
+  font-weight: 700;
+}
+
+.quiz-option-btn.selected-incorrect {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #991b1b;
+  font-weight: 700;
+}
+
+.quiz-letter {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #d4c1dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.76rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.quiz-feedback-box {
+  margin-top: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  display: none;
+  animation: fadeInDown 0.25s ease;
+}
+
+.quiz-feedback-box.correct {
+  display: block;
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  color: #064e3b;
+}
+
+.quiz-feedback-box.incorrect {
+  display: block;
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #7f1d1d;
+}
+
+/* ==========================================================================
+   SIMULADOR FÍSICO MASA-RESORTE + FASOR DE GRAN TAMAÑO
+   ========================================================================== */
+.sim-container {
+  width: 100%;
+  background: #ffffff;
+  border: 1.5px solid #ded0e8;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 6px 0;
+  box-shadow: 0 4px 16px rgba(80, 40, 90, 0.06);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sim-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #fbf7fd;
+  border-bottom: 1px solid #ebdfee;
+}
+
+.sim-display-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  background: #fdfcff;
+  flex: 1;
+}
+
+.sim-canvas-box {
+  background: #ffffff;
+  border: 1px solid #ebdfee;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 270px; /* Lienzo amplio para ver el resorte y los vectores claramente */
+  position: relative;
+}
+
+.sim-canvas-box canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sim-tag-pill {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #4b2a53;
+  border: 1px solid #ebdfee;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.sim-btn-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary-accent), #c05299);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.82rem;
+  font-family: var(--font-display);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.sim-tab-group {
+  display: flex;
+  gap: 6px;
+  background: #f1e5f5;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.sim-tab-btn {
+  padding: 5px 10px;
+  font-size: 0.76rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  color: #5c275e;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.sim-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.sim-tab-btn.active {
+  background: #ffffff;
+  color: var(--primary-accent);
+  box-shadow: 0 2px 6px rgba(139, 79, 140, 0.2);
+}
+
+/* ==========================================================================
+   MAPA MENTAL INTERACTIVO SVG EXPANDIDO
+   ========================================================================== */
+.mindmap-container {
+  width: 100%;
+  height: 540px; /* Aumentado a 540px */
+  background: radial-gradient(circle at center, #ffffff 0%, #faf6fc 100%);
+  border-radius: 14px;
+  border: 1.5px solid #ded0e8;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
+  flex: 1;
+}
+
+.mindmap-svg {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+/* ==========================================================================
+   LÍNEA DE TIEMPO HISTÓRICA EXPANDIDA
+   ========================================================================== */
+.timeline-container {
+  position: relative;
+  padding: 10px 0 10px 24px;
+  margin-left: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 6px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--primary-accent), var(--rose-gold), var(--utp-gold));
+  border-radius: 2px;
+}
+
+.timeline-event {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--primary-accent);
+  box-shadow: 0 0 0 2px rgba(139, 79, 140, 0.2);
+}
+
+.timeline-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #ebdfee;
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary-accent);
+  background: var(--primary-soft);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.timeline-scientist {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #3b1c42;
+}
+
+.timeline-desc {
+  font-size: 0.84rem;
+  color: #4b3952;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   GLOSARIO Y REFERENCIAS APA 7 EXPANDIDOS
+   ========================================================================== */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 4px;
+  flex: 1;
+}
+
+.glossary-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #ded0e8;
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-smooth);
+}
+
+.glossary-term {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.glossary-def {
+  font-size: 0.82rem;
+  color: #4b3a51;
+  line-height: 1.38;
+}
+
+.glossary-unit {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   ÍNDICE TEMÁTICO DE ALTA GAMA (HOJA DE CONTENIDO CON MÁS VIDA Y COLOR)
+   ========================================================================== */
+.toc-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.toc-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ffffff 0%, #fdf8fd 60%, #f6eef8 100%);
+  border: 1.5px solid #ebdfee;
+  border-radius: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 2px 6px rgba(80, 40, 90, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.toc-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary-accent), var(--primary-light));
+  opacity: 0.7;
+  transition: width 0.25s ease;
+}
+
+.toc-item:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f7ecfa 100%);
+  border-color: var(--primary-accent);
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(139, 79, 140, 0.15);
+}
+
+.toc-item:hover::before {
+  width: 6px;
+  opacity: 1;
+}
+
+.toc-num {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary-accent), #c05299);
+  padding: 2px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(139, 79, 140, 0.25);
+}
+
+.toc-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.toc-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #3b1c42;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toc-sub {
+  font-size: 0.76rem;
+  color: #725a7a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toc-badge-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+  background: rgba(139, 79, 140, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+/* Cinta de inspiración editorial */
+.toc-quote-ribbon {
+  margin-top: 4px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #fbf4fc 0%, #f4e8f7 100%);
+  border: 1px dashed #d8c2dc;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #4a2153;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   HOJA DE REFERENCIAS APA 7 Y CIERRE EDITORIAL PREMIUN (DIPLOMA STYLE)
+   ========================================================================== */
+.apa-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.apa-item {
+  background: linear-gradient(135deg, #ffffff 0%, #faf6fb 100%);
+  border: 1px solid #ebdfee;
+  border-left: 4px solid var(--primary-accent);
+  border-radius: 0 8px 8px 0;
+  padding: 5px 10px 5px 22px;
+  font-size: 0.8rem;
+  color: #3b2542;
+  line-height: 1.38;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  text-indent: -14px;
+}
+
+.apa-badge {
+  display: inline-block;
+  text-indent: 0;
+  margin-left: 6px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--primary-accent);
+  background: var(--primary-soft);
+  padding: 1px 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(139, 79, 140, 0.2);
+}
+
+/* Diploma / Sello de culminación institucional */
+.academic-certificate-box {
+  margin-top: 4px;
+  padding: 6px 14px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fdf8fe 0%, #f5eaf7 60%, #fffbf0 100%);
+  border: 1.5px solid #d8bfd8;
+  box-shadow: 0 4px 14px rgba(80, 40, 90, 0.06);
+  text-align: center;
+}
+
+.academic-seal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  padding: 2px 12px;
+  border-radius: 12px;
+  border: 1px solid #e2cce2;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #5c2060;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.academic-signatures-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px dashed rgba(139, 79, 140, 0.25);
+}
+
+.signature-block {
+  text-align: center;
+}
+
+.signature-name {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--primary-accent);
+}
+
+.signature-role {
+  font-size: 0.72rem;
+  color: #725a7a;
+}
+
+/* ==========================================================================
+   PESTAÑAS PARA CASOS DE LA VIDA REAL (EVITA DESBORDAMIENTOS Y AGRANDA FOTOS)
+   ========================================================================== */
+.case-tab-bar {
+  display: flex;
+  gap: 6px;
+  background: #f1e5f5;
+  padding: 3px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+}
+
+.case-tab-btn {
+  flex: 1;
+  padding: 5px 8px;
+  font-size: 0.76rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  color: #5c275e;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-align: center;
+}
+
+.case-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.case-tab-btn.active {
+  background: #ffffff;
+  color: var(--primary-accent);
+  box-shadow: 0 2px 6px rgba(139, 79, 140, 0.2);
+}
+
+.case-content-pane {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.case-content-pane.active {
+  display: flex;
+  animation: fadeInDown 0.25s ease;
+}
+
+/* ==========================================================================
+   ESTÉTICA INSPIRADA EN LA PÁGINA 2: TÍTULOS CURSIVOS, BANNERS PASTEL Y MARCADORES
+   ========================================================================== */
+.page-title-script {
+  font-family: var(--font-script);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #3b1c42;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin-top: -2px;
+}
+
+.marker-highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.marker-highlight::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 2px;
+  height: 38%;
+  background: rgba(223, 162, 200, 0.35);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+/* ==========================================================================
+   FRANJAS, PÍLDORAS Y DESTACADOS (LAVANDA, ROSA, SALVIA, CREMA)
+   ========================================================================== */
+.banner-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  border-radius: 24px;
+  font-family: var(--font-script);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  box-shadow: 0 2px 8px rgba(78, 42, 85, 0.05);
+  letter-spacing: 0.01em;
+  transition: var(--transition-smooth);
+}
+
+.banner-pill:hover {
+  transform: translateY(-1px);
+}
+
+.banner-lavender {
+  background: linear-gradient(90deg, #f5e9f8 0%, #ecd7f2 65%, #fbf5fc 100%);
+  color: #3b1642;
+  border: 1.5px solid #dcbfe0;
+  border-left: 5px solid #8b4f8c;
+}
+
+.banner-rose {
+  background: linear-gradient(90deg, #fdf2f8 0%, #fce2ee 65%, #fff5f9 100%);
+  color: #701a45;
+  border: 1.5px solid #fbcfe8;
+  border-left: 5px solid #db2777;
+}
+
+.banner-sage {
+  background: linear-gradient(90deg, #f0fdf4 0%, #def7e8 65%, #f6fdf9 100%);
+  color: #064e3b;
+  border: 1.5px solid #a7f3d0;
+  border-left: 5px solid #059669;
+}
+
+.banner-cream {
+  background: linear-gradient(90deg, #fffdfa 0%, #fef3c7 65%, #fffdf5 100%);
+  color: #78350f;
+  border: 1.5px solid #fde68a;
+  border-left: 5px solid #d97706;
+}
+
+/* ==========================================================================
+   RECUADROS EDITORIALES TEMATIZADOS (PASTEL CARDS)
+   ========================================================================== */
+.editorial-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  padding: 10px 14px;
+  border: 1.5px solid #eedfed;
+  box-shadow: 0 4px 14px rgba(78, 42, 85, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.editorial-card:hover {
+  box-shadow: 0 6px 18px rgba(78, 42, 85, 0.08);
+}
+
+.card-lavender {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(247, 237, 250, 0.85));
+  border: 1.5px solid #dcbfe0;
+  border-left: 4px solid #8b4f8c;
+}
+
+.card-rose {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(254, 242, 248, 0.85));
+  border: 1.5px solid #fbcfe8;
+  border-left: 4px solid #db2777;
+}
+
+.card-sage {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 253, 244, 0.85));
+  border: 1.5px solid #a7f3d0;
+  border-left: 4px solid #059669;
+}
+
+.card-cream {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 253, 245, 0.85));
+  border: 1.5px solid #fde68a;
+  border-left: 4px solid #d97706;
+}
+
+/* CAJAS DE FÓRMULAS CON DISTINCIÓN ACADÉMICA */
+.formula-box {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #ebdfee;
+  padding: 6px 12px;
+  margin: 4px 0;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+  position: relative;
+}
+
+.formula-box .eq-num {
+  position: absolute;
+  right: 8px;
+  top: 6px;
+}
+
+/* ==========================================================================
+   ILUSTRACIONES CIENTÍFICAS TRANSPARENTES CON AURA PASTEL
+   ========================================================================== */
+.sci-diagram-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(244, 232, 247, 0.6) 0%, rgba(255, 255, 255, 0.2) 70%, transparent 100%);
+  border-radius: 12px;
+  padding: 6px;
+  margin: 4px 0;
+  position: relative;
+}
+
+.sci-diagram-wrap svg {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 6px rgba(120, 60, 130, 0.12));
+}
+
+.thematic-watermark {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+  transition: opacity 0.3s ease;
+}
+
+.thematic-watermark.top-right {
+  top: 10px;
+  right: 20px;
+  width: 95px;
+  height: 95px;
+}
+
+.thematic-watermark.bottom-right {
+  bottom: 18px;
+  right: 18px;
+  width: 110px;
+  height: 110px;
+}
+
+.thematic-watermark.bottom-left {
+  bottom: 18px;
+  left: 18px;
+  width: 100px;
+  height: 100px;
+}
+
+.thematic-watermark.center-right {
+  top: 45%;
+  right: 14px;
+  width: 90px;
+  height: 90px;
+  transform: translateY(-50%);
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Física III - Cuaderno Interactivo MAS",
+  "short_name": "Física III UTP",
+  "description": "Cuaderno Digital Interactivo de Movimiento Oscilatorio y Armónico Simple - Universidad Tecnológica de Pereira",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f0eaf3",
+  "theme_color": "#8b4f8c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "IMAGENES/portadaa.png",
+      "sizes": "1103x1426",
+      "type": "image/png"
+    }
+  ]
+}

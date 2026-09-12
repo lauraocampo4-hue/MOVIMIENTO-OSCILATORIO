@@ -1,0 +1,252 @@
+/* ==========================================================================
+   FÍSICA III - CUADERNO DIGITAL INTERACTIVO (SPA/PWA)
+   Autores: Danna Arias y Laura Ocampo
+   Universidad Tecnológica de Pereira (UTP)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+:root {
+  /* Paleta cromática universitaria UTP y estética Página 2: lila, lavanda, rosa pastel, crema y salvia */
+  --bg-workspace: #ede4f0;
+  --bg-workspace-grad: radial-gradient(circle at 50% 15%, #f9f5fb 0%, #ece1f0 55%, #dfcfe6 100%);
+  
+  --primary-accent: #8b4f8c;
+  --primary-light: #a96fab;
+  --primary-soft: #f4e8f7;
+  --primary-dark: #3b1c42;
+  
+  --pastel-lavender: #f5e9f8;
+  --pastel-lavender-border: #dcbfe0;
+  --pastel-lavender-text: #411b4a;
+  
+  --pastel-rose: #fdf2f8;
+  --pastel-rose-border: #fbcfe8;
+  --pastel-rose-text: #701a45;
+  
+  --pastel-sage: #ecfdf5;
+  --pastel-sage-border: #a7f3d0;
+  --pastel-sage-text: #064e3b;
+  
+  --pastel-cream: #fffdfa;
+  --pastel-cream-border: #fde68a;
+  --pastel-cream-text: #78350f;
+  
+  --pastel-gold: #fef3c7;
+  
+  --rose-gold: #c88d94;
+  --rose-soft: #fdf2f4;
+  --rose-border: #e8bdc3;
+  
+  --utp-red: #c8102e;
+  --utp-gold: #e5a823;
+  --utp-green: #007a3d;
+  --utp-blue: #005691;
+  
+  /* Colores normativos para metodología de ejercicios */
+  --color-dato: #1d4ed8;       /* Azul riguroso para DATOS */
+  --color-dato-bg: #eff6ff;
+  --color-dato-border: #bfdbfe;
+  
+  --color-incognita: #dc2626;   /* Rojo vivo para INCÓGNITAS */
+  --color-incognita-bg: #fef2f2;
+  --color-incognita-border: #fecaca;
+  
+  --color-despeje: #d97706;     /* Naranja para VARIABLES DESPEJADAS */
+  --color-despeje-bg: #fffbeb;
+  --color-despeje-border: #fde68a;
+  
+  --color-valido: #059669;      /* Verde validación */
+  --color-valido-bg: #ecfdf5;
+  --color-valido-border: #a7f3d0;
+  
+  /* Tipografía ampliada para lectura cómoda y elegante */
+  --font-script: 'Caveat', cursive, sans-serif;
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-math: 'KaTeX_Math', 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-classic: 'Cinzel', serif;
+  
+  /* DIMENSIONES MAXIMIZADAS (85-98% DEL ANCHO Y 92% DEL ALTO DE PANTALLA) */
+  --book-width: min(98vw, 1750px);
+  --book-height: min(92vh, 980px);
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-body);
+  background: var(--bg-workspace-grad);
+  color: #2e2433;
+  overflow-x: hidden;
+  line-height: 1.55;
+  font-size: 15.5px; /* Tipografía más grande y nítida */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar estética y delgada */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(240, 230, 245, 0.4);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-accent);
+}
+
+/* Títulos con tipografía destacada */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #3b1c42;
+}
+
+/* Fórmulas KaTeX de mayor tamaño */
+.katex-display {
+  font-size: 1.18rem !important;
+  margin: 6px 0 !important;
+}
+
+.katex {
+  font-size: 1.05em;
+}
+
+/* Badges de numeración secuencial */
+.seq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  border: 1px solid rgba(139, 79, 140, 0.2);
+}
+
+.seq-badge.fig {
+  background: #fdf4ff;
+  border-color: #f0abfc;
+  color: #a21caf;
+}
+
+.seq-badge.eq {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #15803d;
+}
+
+.seq-badge.tbl {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+/* CONTENEDOR PRINCIPAL: MINIMIZAR ESPACIO PERIFÉRICO */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2px 8px 6px 8px; /* Mínimo margen exterior */
+}
+
+/* CABECERA ULTRA-COMPACTA */
+.app-header {
+  width: 100%;
+  max-width: var(--book-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 14px;
+  margin-bottom: 3px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 3px 10px rgba(78, 42, 85, 0.04);
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-brand-logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--utp-red), var(--utp-gold), var(--utp-green));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  font-size: 0.72rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.app-brand-text h1 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #581c62, #8b4f8c, #c05299);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-brand-text p {
+  font-size: 0.72rem;
+  color: #6b5c73;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(139, 79, 140, 0.2);
+  background: #ffffff;
+  color: var(--primary-dark);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-icon:hover {
+  background: var(--primary-soft);
+  transform: translateY(-1px);
+}
+
+.btn-icon svg {
+  width: 15px;
+  height: 15px;
+}

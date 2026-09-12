@@ -1,0 +1,220 @@
+/* ==========================================================================
+   EXERCISES CSS - METODOLOGÍA CROMÁTICA RIGUROSA DE RESOLUCIÓN
+   ========================================================================== */
+
+.exercise-container {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid #dfcfed;
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 20px rgba(80, 40, 90, 0.06);
+}
+
+.exercise-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid #eedfed;
+}
+
+.exercise-badge-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.exercise-tag {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.exercise-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #3b1945;
+}
+
+.exercise-statement {
+  background: #faf7fc;
+  border-left: 4px solid var(--primary-accent);
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  font-size: 0.92rem;
+  color: #382440;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+/* 5 PASOS METODOLÓGICOS CON CÓDIGO DE COLORES ESTRICTO */
+.step-card {
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  border: 1.5px solid transparent;
+  transition: var(--transition-smooth);
+}
+
+.step-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.step-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 0.94rem;
+  margin-bottom: 10px;
+}
+
+.step-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+/* PASO 1: DATOS (AZUL RIGUROSO) */
+.step-card.step-datos {
+  background: #f0f7ff;
+  border-color: #93c5fd;
+}
+.step-card.step-datos .step-badge {
+  background: #1d4ed8;
+}
+.step-card.step-datos .step-card-header {
+  color: #1e40af;
+}
+
+.var-dato {
+  color: #1d4ed8 !important;
+  font-weight: 800;
+  background: rgba(37, 99, 235, 0.1);
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(37, 99, 235, 0.25);
+}
+
+/* PASO 2: INCÓGNITAS (ROJO VIVO) */
+.step-card.step-incognitas {
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+.step-card.step-incognitas .step-badge {
+  background: #dc2626;
+}
+.step-card.step-incognitas .step-card-header {
+  color: #991b1b;
+}
+
+.var-incognita {
+  color: #dc2626 !important;
+  font-weight: 800;
+  background: rgba(220, 38, 38, 0.1);
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+}
+
+/* PASO 3: FÓRMULAS NECESARIAS */
+.step-card.step-formulas {
+  background: #faf5ff;
+  border-color: #d8b4fe;
+}
+.step-card.step-formulas .step-badge {
+  background: #7e22ce;
+}
+.step-card.step-formulas .step-card-header {
+  color: #581c87;
+}
+
+/* PASO 4: RESULTADO (NARANJA) */
+.step-card.step-resultado {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+.step-card.step-resultado .step-badge {
+  background: #ea580c;
+}
+.step-card.step-resultado .step-card-header {
+  color: #c2410c;
+}
+
+.var-despeje, .var-resultado {
+  color: #ea580c !important;
+  font-weight: 800;
+  background: rgba(234, 88, 12, 0.12);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(234, 88, 12, 0.35);
+  display: inline-block;
+  margin: 3px 0;
+}
+
+/* PASO 5: VALIDACIÓN (VERDE) */
+.step-card.step-validacion {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+.step-card.step-validacion .step-badge {
+  background: #059669;
+}
+.step-card.step-validacion .step-card-header {
+  color: #065f46;
+}
+
+/* PASO 6: CONCLUSIÓN FÍSICA */
+.step-card.step-conclusion {
+  background: #f0fdfa;
+  border-color: #99f6e4;
+}
+.step-card.step-conclusion .step-badge {
+  background: #0d9488;
+}
+.step-card.step-conclusion .step-card-header {
+  color: #115e59;
+}
+
+.conclusion-box {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 10px 14px;
+  border: 1px solid #6ee7b7;
+  font-size: 0.88rem;
+  color: #064e3b;
+  margin-top: 8px;
+}
+
+/* Lista de variables estilizada */
+.variables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.var-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}

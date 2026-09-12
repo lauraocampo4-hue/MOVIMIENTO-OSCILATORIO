@@ -1,0 +1,274 @@
+/* ==========================================================================
+   GEOGEBRA CANVAS CSS - PLANO CARTESIANO DE GRAN TAMAÑO Y PRECISIÓN
+   ========================================================================== */
+
+.geogebra-widget {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1.5px solid #d4c2dc;
+  box-shadow: 0 6px 20px -3px rgba(78, 42, 85, 0.1), inset 0 0 0 1px rgba(255,255,255,0.7);
+  overflow: hidden;
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Barra superior */
+.geogebra-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: linear-gradient(90deg, #faf7fc, #f1e7f5);
+  border-bottom: 1px solid #e2d4e8;
+}
+
+.geogebra-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #4a2053;
+}
+
+.geogebra-title svg {
+  width: 18px;
+  height: 18px;
+  color: var(--primary-accent);
+}
+
+.geogebra-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.geo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #d8c7de;
+  background: #ffffff;
+  color: #4b2b54;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.geo-btn:hover {
+  background: var(--primary-soft);
+  color: var(--primary-accent);
+  border-color: var(--primary-accent);
+  transform: translateY(-1px);
+}
+
+.geo-btn.active {
+  background: var(--primary-accent);
+  color: #ffffff;
+}
+
+/* ÁREA DEL CANVAS AMPLIADA A 360px */
+.geogebra-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 360px; /* Lienzo grande y legible */
+  background: #ffffff;
+  cursor: crosshair;
+  user-select: none;
+  touch-action: none;
+}
+
+.geogebra-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.geogebra-coord-pill {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: 1px solid #d8c7de;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #472651;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  pointer-events: none;
+}
+
+/* Panel inferior de sliders */
+.geogebra-controls-bar {
+  padding: 8px 16px;
+  background: #fbf9fd;
+  border-top: 1px solid #ebdfee;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.geo-slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.geo-slider-label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #4b2a53;
+  font-size: 0.82rem;
+}
+
+.geo-slider-label span.val {
+  font-family: var(--font-mono);
+  color: var(--primary-accent);
+}
+
+.geo-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #e2d4e8;
+  outline: none;
+}
+
+.geo-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary-accent);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(139, 79, 140, 0.4);
+}
+
+/* POPUP DE LA PALETA */
+.geogebra-palette-popup {
+  position: absolute;
+  top: 48px;
+  right: 14px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  border: 1px solid #d4c2dc;
+  box-shadow: 0 12px 32px rgba(78, 42, 85, 0.2);
+  z-index: 100;
+  width: 250px;
+  display: none;
+}
+
+.geogebra-palette-popup.open {
+  display: block;
+}
+
+.palette-section-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #63436b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.palette-colors-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.color-swatch {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition-smooth);
+}
+
+.color-swatch:hover, .color-swatch.active {
+  transform: scale(1.18);
+  border-color: #3b1d42;
+}
+
+/* MODAL DE PANTALLA COMPLETA */
+.geogebra-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(40, 18, 48, 0.75);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.geogebra-modal-overlay.open {
+  display: flex;
+}
+
+.geogebra-modal-window {
+  width: 95vw;
+  max-width: 1350px;
+  height: 92vh;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #fbf7fd, #f2e6f7);
+  border-bottom: 1.5px solid #dfcfed;
+}
+
+.modal-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #d4c2dc;
+  background: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.modal-body {
+  flex: 1;
+  position: relative;
+}
+
+.modal-canvas-area {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-canvas-area canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
