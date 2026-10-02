@@ -68,9 +68,9 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-classic: 'Cinzel', serif;
   
-  /* DIMENSIONES MAXIMIZADAS (85-98% DEL ANCHO Y 92% DEL ALTO DE PANTALLA) */
+  /* DIMENSIONES MAXIMIZADAS (85-98% DEL ANCHO Y AJUSTE PRECISO DE ALTO) */
   --book-width: min(98vw, 1750px);
-  --book-height: min(92vh, 980px);
+  --book-height: min(calc(100vh - 120px), 890px);
   
   --transition-smooth: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }

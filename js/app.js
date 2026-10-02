@@ -60,33 +60,61 @@ class SpreadNotebookManager {
     }
   }
 
-  playPageFlipSound() {
+    playPageFlipSound() {
     if (!this.audioCtx) return;
     try {
       if (this.audioCtx.state === 'suspended') {
         this.audioCtx.resume();
       }
-      const bufferSize = this.audioCtx.sampleRate * 0.15; // 150ms
-      const buffer = this.audioCtx.createBuffer(1, bufferSize, this.audioCtx.sampleRate);
+      const now = this.audioCtx.currentTime;
+      const duration = 0.28; // 280ms
+      const sampleRate = this.audioCtx.sampleRate;
+      const bufferSize = Math.floor(sampleRate * duration);
+      const buffer = this.audioCtx.createBuffer(1, bufferSize, sampleRate);
       const data = buffer.getChannelData(0);
-      for (let i = 0; i < bufferSize; i++) {
-        // Ruido blanco suave modulado
-        const decay = Math.exp(-i / (bufferSize * 0.35));
-        data[i] = (Math.random() * 2 - 1) * decay * 0.12;
-      }
-      const noise = this.audioCtx.createBufferSource();
-      noise.buffer = buffer;
 
-      // Filtro paso banda para simular el roce del papel
+      // Generar ruido blanco con textura orgánica y modulaciones de fricción de papel físico real
+      for (let i = 0; i < bufferSize; i++) {
+        const t = i / sampleRate;
+        const env = Math.sin((Math.PI * t) / duration);
+        const friction1 = (Math.random() * 2 - 1) * 0.65;
+        const friction2 = (Math.random() * 2 - 1) * Math.sin(t * 160) * 0.35;
+        data[i] = (friction1 + friction2) * Math.pow(env, 1.35);
+      }
+
+      const noiseSource = this.audioCtx.createBufferSource();
+      noiseSource.buffer = buffer;
+
+      // Filtro paso banda con barrido de frecuencia: emula el arqueo y volteo del papel
       const filter = this.audioCtx.createBiquadFilter();
       filter.type = 'bandpass';
-      filter.frequency.value = 1400;
-      filter.Q.value = 1.2;
+      filter.Q.setValueAtTime(1.6, now);
+      filter.frequency.setValueAtTime(2400, now);
+      filter.frequency.exponentialRampToValueAtTime(800, now + duration * 0.7);
+      filter.frequency.linearRampToValueAtTime(450, now + duration);
 
-      noise.connect(filter);
-      filter.connect(this.audioCtx.destination);
-      noise.start();
-    } catch (e) {}
+      // Filtro paso bajo para cuerpo y calidez acústica
+      const lowpass = this.audioCtx.createBiquadFilter();
+      lowpass.type = 'lowpass';
+      lowpass.frequency.setValueAtTime(3400, now);
+      lowpass.frequency.linearRampToValueAtTime(1100, now + duration);
+
+      // Envolvente de ganancia natural
+      const gainNode = this.audioCtx.createGain();
+      gainNode.gain.setValueAtTime(0.001, now);
+      gainNode.gain.linearRampToValueAtTime(0.38, now + 0.025);
+      gainNode.gain.exponentialRampToValueAtTime(0.008, now + duration);
+
+      noiseSource.connect(filter);
+      filter.connect(lowpass);
+      lowpass.connect(gainNode);
+      gainNode.connect(this.audioCtx.destination);
+
+      noiseSource.start(now);
+      noiseSource.stop(now + duration);
+    } catch (e) {
+      console.warn('Audio page-flip error:', e);
+    }
   }
 
   initNavigation() {
@@ -275,6 +303,15 @@ class SpreadNotebookManager {
           this.initPhysicsSimulation();
         } else {
           this.simulationInstance.setupDPI();
+        }
+      }, 100);
+    }
+
+    // Pliego 12 (Índice 11): Simulador de Conservación de Energía (Pág. 23)
+    if (spreadIndex === 11) {
+      setTimeout(() => {
+        if (typeof window.initEnergySimulator === 'function') {
+          window.initEnergySimulator();
         }
       }, 100);
     }
@@ -537,16 +574,27 @@ class SpreadNotebookManager {
   }
 
   renderKaTeX() {
-    if (window.renderMathInElement) {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false },
-          { left: '\\(', right: '\\)', display: false },
-          { left: '\\[', right: '\\]', display: true }
-        ],
-        throwOnError: false
-      });
-    }
+    const doRender = () => {
+      if (typeof window.renderMathInElement === 'function') {
+        try {
+          window.renderMathInElement(document.body, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false },
+              { left: '\\(', right: '\\)', display: false },
+              { left: '\\[', right: '\\]', display: true }
+            ],
+            throwOnError: false,
+            ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'option', 'svg', 'canvas']
+          });
+        } catch (err) {
+          console.warn('KaTeX render warning:', err);
+        }
+      }
+    };
+    doRender();
+    setTimeout(doRender, 100);
+    setTimeout(doRender, 400);
   }
 }
+

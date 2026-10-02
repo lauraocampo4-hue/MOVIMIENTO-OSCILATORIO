@@ -1,19 +1,6 @@
 /**
- * MINDMAP JS - MAPA MENTAL CONCEPTUAL INTERACTIVO EN SVG
- * Diagrama de red cognitiva de alta resolución para Movimiento Oscilatorio y MAS.
- * 
- * Requerimiento 13:
- * Nodo central: Movimiento Oscilatorio y MAS
- * Ramas:
- * 1. Movimiento periódico
- * 2. Amplitud
- * 3. Elongación
- * 4. Periodo
- * 5. Frecuencia
- * 6. Frecuencia angular
- * 7. MAS
- * 8. Cinemática
- * 9. Aplicaciones
+ * MINDMAP JS - MAPA MENTAL CONCEPTUAL INTERACTIVO EN SVG (EDICIÓN CORREGIDA FULL VIEW)
+ * Diagrama de red cognitiva con escala optimizada para pantalla completa sin recortes.
  * 
  * Autoras: Danna Arias y Laura Ocampo - Universidad Tecnológica de Pereira
  */
@@ -28,145 +15,145 @@ class InteractiveMindmap {
       {
         id: 'root',
         label: 'Movimiento Oscilatorio y MAS',
-        x: 410,
-        y: 240,
+        x: 460,
+        y: 250,
         type: 'root',
         color: '#8b4f8c',
-        desc: 'Fenómeno mecánico periódico donde un sistema oscila en torno a un punto de equilibrio estable bajo la acción de una fuerza restauradora elástica.'
+        desc: 'Fenómeno mecánico periódico donde un sistema oscila en torno a un punto de equilibrio estable bajo una fuerza restauradora conservativa.'
       },
 
-      // 9 Ramas Principales solicitadas
+      // 9 Ramas Principales con coordenadas optimizadas (sin salirse de los límites)
       {
         id: 'periodico',
         parent: 'root',
         label: '1. Movimiento Periódico',
-        x: 170,
-        y: 70,
+        x: 180,
+        y: 85,
         type: 'branch',
         color: '#2563eb',
-        desc: 'Movimiento que se repite idénticamente en intervalos regulares de tiempo T. Todo movimiento oscilatorio es periódico, pero no todo periódico es oscilatorio.'
+        desc: 'Movimiento que se repite idénticamente a intervalos constantes de tiempo T. Todo MAS es periódico, pero no todo periódico es armónico.'
       },
       {
         id: 'elongacion',
         parent: 'root',
         label: '2. Elongación (x)',
-        x: 410,
-        y: 60,
+        x: 460,
+        y: 75,
         type: 'branch',
         color: '#7c3aed',
-        desc: 'Posición vectorial instantánea de la partícula respecto al punto de equilibrio en cualquier instante de tiempo t. Unidad SI: metro [m].'
+        desc: 'Posición instantánea de la partícula respecto al centro de equilibrio en cualquier instante t. Unidad SI: metro [m].'
       },
       {
         id: 'amplitud',
         parent: 'root',
         label: '3. Amplitud (A)',
-        x: 650,
-        y: 70,
+        x: 730,
+        y: 85,
         type: 'branch',
         color: '#d97706',
-        desc: 'Máximo desplazamiento que alcanza la partícula desde su equilibrio: A = |x_max|. Es siempre un escalar estrictamente positivo.'
+        desc: 'Máximo desplazamiento desde el equilibrio: A = |x_max|. Es siempre un escalar positivo. Unidad SI: metro [m].'
       },
       {
         id: 'periodo',
         parent: 'root',
         label: '4. Periodo (T)',
-        x: 710,
-        y: 180,
+        x: 760,
+        y: 200,
         type: 'branch',
         color: '#059669',
-        desc: 'Tiempo empleado en completar un ciclo u oscilación de ida y vuelta. En el sistema masa-resorte: T = 2π√(m/k). Unidad SI: segundo [s].'
+        desc: 'Tiempo necesario para completar un ciclo completo de ida y vuelta: T = 2π/ω = 2π√(m/k). Unidad SI: segundo [s].'
       },
       {
         id: 'frecuencia',
         parent: 'root',
         label: '5. Frecuencia (f)',
-        x: 710,
-        y: 310,
+        x: 760,
+        y: 320,
         type: 'branch',
         color: '#0891b2',
-        desc: 'Número de oscilaciones completas efectuadas en cada unidad de tiempo: f = 1/T. Unidad SI: Hertz [Hz = s⁻¹].'
+        desc: 'Número de oscilaciones completas por segundo: f = 1/T = ω/(2π). Unidad SI: Hertz [Hz = s⁻¹].'
       },
       {
         id: 'frec_angular',
         parent: 'root',
         label: '6. Frecuencia Angular (ω)',
-        x: 580,
-        y: 410,
+        x: 670,
+        y: 430,
         type: 'branch',
         color: '#dc2626',
-        desc: 'Rapidez de rotación del vector fasor asociado: ω = 2π f = 2π/T = √(k/m). Unidad SI: rad/s.'
+        desc: 'Velocidad angular del fasor asociado: ω = 2π f = √(k/m). Determina la rapidez de oscilación. Unidad SI: [rad/s].'
       },
       {
         id: 'mas',
         parent: 'root',
         label: '7. M.A.S. (Hooke)',
-        x: 410,
-        y: 425,
+        x: 460,
+        y: 430,
         type: 'branch',
         color: '#9333ea',
-        desc: 'Movimiento oscilatorio rectilíneo originado por una fuerza conservativa proporcional y opuesta a la elongación: F = -kx.'
+        desc: 'Movimiento rectilíneo bajo una fuerza restauradora elástica proporcional y opuesta a la posición: F = -kx.'
       },
       {
         id: 'cinematica',
         parent: 'root',
         label: '8. Cinemática',
-        x: 230,
-        y: 410,
+        x: 250,
+        y: 430,
         type: 'branch',
         color: '#c026d3',
-        desc: 'Ecuaciones temporales continuas: Posición x(t)=A·cos(ωt+φ), Velocidad v(t)=-ωA·sin(ωt+φ) y Aceleración a(t)=-ω²x(t).'
+        desc: 'Ecuaciones analíticas: x(t)=A·cos(ωt+φ), v(t)=-ωA·sen(ωt+φ) y a(t)=-ω²x(t).'
       },
       {
         id: 'aplicaciones',
         parent: 'root',
         label: '9. Aplicaciones Reales',
-        x: 110,
+        x: 150,
         y: 220,
         type: 'branch',
         color: '#4f46e5',
-        desc: 'Sistemas de suspensión automotriz, sintonizadores antisísmicos en rascacielos (Taipei 101), maquinaria industrial, relojes y acústica musical.'
+        desc: 'Amortiguadores vehiculares, péndulos sintonizados antisísmicos (Taipei 101), sismógrafos y diseño estructural.'
       },
 
-      // Hojas explicativas de profundización
+      // Hojas de profundización matemática
       {
         id: 'sub_hooke',
         parent: 'mas',
         label: 'F = -k x',
-        x: 410,
-        y: 470,
+        x: 390,
+        y: 495,
         type: 'leaf',
         color: '#9333ea',
-        desc: 'Ley de Hooke: rigidez elástica que siempre apunta hacia el centro de equilibrio.'
+        desc: 'Ley de Hooke: la fuerza elástica siempre apunta hacia el origen restaurador.'
       },
       {
         id: 'sub_edo',
         parent: 'mas',
         label: 'ẍ + ω²x = 0',
-        x: 510,
-        y: 460,
+        x: 530,
+        y: 495,
         type: 'leaf',
         color: '#9333ea',
-        desc: 'Ecuación diferencial lineal homogénea fundamental de la oscilación libre.'
+        desc: 'Ecuación diferencial lineal homogénea de segundo orden del MAS.'
       },
       {
         id: 'sub_desfase',
         parent: 'cinematica',
         label: 'Desfases: π/2 y π',
-        x: 100,
-        y: 350,
+        x: 140,
+        y: 490,
         type: 'leaf',
         color: '#c026d3',
-        desc: 'La velocidad adelanta en 90° a la posición; la aceleración se encuentra en oposición exacta de fase (180°).'
+        desc: 'La velocidad adelanta en 90° (π/2) a la posición; la aceleración está desfasada 180° (π).'
       },
       {
         id: 'sub_formula_t',
         parent: 'periodo',
         label: 'T = 1 / f',
-        x: 770,
-        y: 240,
+        x: 820,
+        y: 260,
         type: 'leaf',
         color: '#059669',
-        desc: 'Relación recíproca exacta entre el período temporal y la frecuencia cíclica.'
+        desc: 'Relación recíproca exacta entre el periodo temporal y la frecuencia cíclica.'
       }
     ];
 
@@ -176,12 +163,13 @@ class InteractiveMindmap {
   render() {
     const svgNS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(svgNS, 'svg');
-    svg.setAttribute('viewBox', '0 0 830 500');
+    svg.setAttribute('viewBox', '0 0 920 540');
     svg.setAttribute('class', 'mindmap-svg');
     svg.style.width = '100%';
     svg.style.height = '100%';
+    svg.style.display = 'block';
 
-    // Capa de conexiones
+    // Capa de enlaces
     const linksGroup = document.createElementNS(svgNS, 'g');
     linksGroup.setAttribute('class', 'mindmap-links-layer');
 
@@ -192,7 +180,7 @@ class InteractiveMindmap {
     const nodeMap = {};
     this.nodes.forEach(n => { nodeMap[n.id] = n; });
 
-    // Dibujar enlaces curvas Bezier suaves
+    // Enlaces con curvas Bezier suaves
     this.nodes.forEach(node => {
       if (node.parent && nodeMap[node.parent]) {
         const p = nodeMap[node.parent];
@@ -204,14 +192,14 @@ class InteractiveMindmap {
         path.setAttribute('class', 'mindmap-link');
         path.setAttribute('stroke', node.color);
         path.setAttribute('fill', 'none');
-        path.setAttribute('stroke-width', node.type === 'leaf' ? '1.5' : '2.2');
+        path.setAttribute('stroke-width', node.type === 'leaf' ? '1.6' : '2.4');
         path.setAttribute('stroke-dasharray', node.type === 'leaf' ? '4,4' : 'none');
-        path.setAttribute('opacity', '0.55');
+        path.setAttribute('opacity', '0.6');
         linksGroup.appendChild(path);
       }
     });
 
-    // Dibujar nodos interactivos
+    // Nodos interactivos
     this.nodes.forEach(node => {
       const g = document.createElementNS(svgNS, 'g');
       g.setAttribute('class', `mindmap-node ${node.type}`);
@@ -221,15 +209,15 @@ class InteractiveMindmap {
       const rect = document.createElementNS(svgNS, 'rect');
       let w = 150, h = 34;
       if (node.type === 'root') { w = 270; h = 48; }
-      else if (node.type === 'branch') { w = 160; h = 36; }
-      else if (node.type === 'leaf') { w = 110; h = 26; }
+      else if (node.type === 'branch') { w = 160; h = 34; }
+      else if (node.type === 'leaf') { w = 115; h = 26; }
 
       rect.setAttribute('x', -w / 2);
       rect.setAttribute('y', -h / 2);
       rect.setAttribute('width', w);
       rect.setAttribute('height', h);
-      rect.setAttribute('rx', node.type === 'root' ? 16 : 10);
-      rect.setAttribute('ry', node.type === 'root' ? 16 : 10);
+      rect.setAttribute('rx', node.type === 'root' ? 16 : 9);
+      rect.setAttribute('ry', node.type === 'root' ? 16 : 9);
 
       if (node.type === 'root') {
         rect.setAttribute('fill', '#8b4f8c');
@@ -254,24 +242,23 @@ class InteractiveMindmap {
         text.setAttribute('font-family', 'Outfit, sans-serif');
       } else if (node.type === 'branch') {
         text.setAttribute('fill', '#2d1a33');
-        text.setAttribute('font-size', '11');
+        text.setAttribute('font-size', '10.5');
         text.setAttribute('font-weight', '700');
         text.setAttribute('font-family', 'Outfit, sans-serif');
       } else {
         text.setAttribute('fill', node.color);
-        text.setAttribute('font-size', '10');
+        text.setAttribute('font-size', '9.5');
         text.setAttribute('font-weight', '600');
         text.setAttribute('font-family', 'JetBrains Mono, monospace');
       }
       g.appendChild(text);
 
-      // Evento de interacción al hacer clic o hover
       g.addEventListener('click', (e) => {
         e.stopPropagation();
         this.showNodeInfo(node);
       });
       g.addEventListener('mouseenter', () => {
-        rect.setAttribute('stroke-width', '3');
+        rect.setAttribute('stroke-width', '3.2');
       });
       g.addEventListener('mouseleave', () => {
         rect.setAttribute('stroke-width', node.type === 'branch' ? '2' : (node.type === 'root' ? '2.5' : '1.5'));
@@ -286,39 +273,36 @@ class InteractiveMindmap {
     this.container.innerHTML = '';
     this.container.appendChild(svg);
 
-    // Contenedor flotante de telemetría conceptual
+    // Contenedor de telemetría flotante superior / inferior seguro
     this.infoBox = document.createElement('div');
     this.infoBox.className = 'mindmap-info-pill';
     this.infoBox.style.cssText = `
       position: absolute;
-      bottom: 8px;
+      top: 8px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(10px);
-      padding: 8px 18px;
+      padding: 6px 16px;
       border-radius: 20px;
       border: 1.5px solid var(--primary-accent);
-      box-shadow: 0 4px 16px rgba(78, 42, 85, 0.15);
-      font-size: 0.84rem;
+      box-shadow: 0 4px 14px rgba(78, 42, 85, 0.12);
+      font-size: 0.82rem;
       color: #3b1d42;
       font-weight: 600;
-      transition: all 0.25s ease;
+      transition: all 0.2s ease;
       text-align: center;
-      max-width: 92%;
-      z-index: 20;
+      max-width: 90%;
+      z-index: 25;
+      pointer-events: none;
     `;
-    this.infoBox.innerHTML = '💡 <em>Haz clic en cualquier rama o nodo para ver su fundamento físico</em>';
+    this.infoBox.innerHTML = '💡 <em>Haz clic en cualquier nodo para ver su concepto físico</em>';
     this.container.appendChild(this.infoBox);
   }
 
   showNodeInfo(node) {
     this.infoBox.innerHTML = `<strong style="color:${node.color}">${node.label}:</strong> ${node.desc}`;
     this.infoBox.style.borderColor = node.color;
-    this.infoBox.style.transform = 'translateX(-50%) scale(1.02)';
-    setTimeout(() => {
-      this.infoBox.style.transform = 'translateX(-50%) scale(1)';
-    }, 200);
   }
 }
 
